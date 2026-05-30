@@ -26,6 +26,7 @@ public class DataLoader implements CommandLineRunner {
 //        userService.saveUser(new User("marie", "ml37+"));
 //        userService.saveUser(new User("james", "js35+"));
 //        userService.saveUser(new User("jane", "jc08+"));
+        // test test test
 
         roleService.addRoleToUser("john", "Seller");
         roleService.addRoleToUser("jean", "Seller");
