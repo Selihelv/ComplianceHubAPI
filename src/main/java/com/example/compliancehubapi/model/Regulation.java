@@ -23,13 +23,11 @@ public class Regulation {
     @Enumerated(EnumType.STRING)
     private MarketplaceEnum marketplace;
 
-    //TODO: define relationship!!!
-
     @ManyToMany
     @JoinTable(
             name= "regulation_documents",
             joinColumns = @JoinColumn(name = "regulation_id"),
             inverseJoinColumns = @JoinColumn(name = "compliance_document_id")
     )
-    private List<ComplianceDocument> requiredDocuments = new ArrayList<>();
+    private List<ComplianceDocument> required_documents = new ArrayList<>();
 }

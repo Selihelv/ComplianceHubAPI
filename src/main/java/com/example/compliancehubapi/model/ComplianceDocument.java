@@ -32,6 +32,6 @@ public class ComplianceDocument {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToMany(mappedBy = "requiredDocuments")
+    @ManyToMany(mappedBy = "required_documents")
     private List<Regulation>  regulations = new ArrayList<>();
 }

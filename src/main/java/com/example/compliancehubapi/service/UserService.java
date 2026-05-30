@@ -1,8 +1,10 @@
 package com.example.compliancehubapi.service;
 
+import com.example.compliancehubapi.enums.ComplianceStatusEnum;
 import com.example.compliancehubapi.model.User;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * The UserServiceInterface is an interface that defines the methods that are available to perform operations on User entities.
@@ -31,5 +33,11 @@ public interface UserService {
      * @return a List of all User entities.
      */
     List<User> getUsers();
+
+    Optional<User> getUserById (Long id);
+
+    List<User> getUsersByComplianceStatus (ComplianceStatusEnum complianceStatus);
+
+    void deleteUser(Long id);
 }
 

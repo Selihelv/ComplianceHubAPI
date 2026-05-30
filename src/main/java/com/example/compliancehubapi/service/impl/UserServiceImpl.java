@@ -1,5 +1,6 @@
 package com.example.compliancehubapi.service.impl;
 
+import com.example.compliancehubapi.enums.ComplianceStatusEnum;
 import com.example.compliancehubapi.model.User;
 import com.example.compliancehubapi.repository.UserRepository;
 import com.example.compliancehubapi.service.UserService;
@@ -19,7 +20,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
+@Slf4j // use this for logging (log.info, log.error...)
 public class UserServiceImpl implements UserService, UserDetailsService {
 
 
@@ -94,4 +95,22 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         log.info("Fetching all users");
         return userRepository.findAll();
     }
+
+    public Optional<User> getUserById (Long id) {
+        log.info("Fetching user by id {}", id);
+       var user = userRepository.findById(id).orElseThrow(
+               () -> new RuntimeException("User with id: " + id + " not found.")
+       );
+       return userRepository.findById(id);
+    }
+
+    public List<User> getUsersByComplianceStatus(ComplianceStatusEnum complianceStatus){
+        log.info("Fetching users by compliance status {}", complianceStatus);
+        return userRepository.getUsersByComplianceStatus(complianceStatus);
+    }
+
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
 }
