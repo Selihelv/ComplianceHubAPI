@@ -24,8 +24,8 @@ public class UserController {
      */
     @GetMapping("/users")
     @ResponseStatus(HttpStatus.OK)
-    public List<User> getUsers() {
-        return userService.getUsers();
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 
     /**
@@ -35,7 +35,7 @@ public class UserController {
      */
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveUser(@RequestBody User user) {
-        userService.saveUser(user);
+    public User saveUser(@RequestBody User user) {
+       return userService.saveUser(user);
     }
 }

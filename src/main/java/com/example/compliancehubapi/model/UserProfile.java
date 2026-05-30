@@ -4,6 +4,7 @@ import com.example.compliancehubapi.enums.MarketplaceEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class UserProfile {
 
     @Id
@@ -30,4 +32,10 @@ public class UserProfile {
     @Embedded
     private BusinessInfo businessInfo;
 
+    public UserProfile(String firstName, String lastName, String email, MarketplaceEnum marketplace) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.marketplace = marketplace;
+    }
 }

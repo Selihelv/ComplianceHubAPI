@@ -32,12 +32,14 @@ public interface UserService {
      *
      * @return a List of all User entities.
      */
-    List<User> getUsers();
+    List<User> getAllUsers();
 
     Optional<User> getUserById (Long id);
 
     List<User> getUsersByComplianceStatus (ComplianceStatusEnum complianceStatus);
 
-    void deleteUser(Long id);
+    User updateUser(Long id, User user);
+
+    void deleteUserById(Long id);
 }
 

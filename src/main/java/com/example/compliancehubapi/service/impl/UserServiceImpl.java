@@ -91,7 +91,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
      * @return a list of all users
      */
     @Override
-    public List<User> getUsers() {
+    public List<User> getAllUsers() {
         log.info("Fetching all users");
         return userRepository.findAll();
     }
@@ -109,7 +109,18 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.getUsersByComplianceStatus(complianceStatus);
     }
 
-    public void deleteUser(Long id) {
+    public User updateUser(Long id, User user){
+        var userToUpdate = userRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("User with id: " + id + " not found.")
+        );
+        userToUpdate.setUsername(user.getUsername());
+        userToUpdate.setPassword(user.getPassword());
+        userToUpdate.setComplianceStatus(user.getComplianceStatus());
+        userToUpdate.setRoles(user.getRoles());
+        return userRepository.save(userToUpdate);
+    }
+
+    public void deleteUserById(Long id) {
         userRepository.deleteById(id);
     }
 

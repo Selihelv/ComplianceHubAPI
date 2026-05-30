@@ -32,7 +32,7 @@ public class User {
     private ComplianceStatusEnum complianceStatus = ComplianceStatusEnum.NON_COMPLIANT;
 
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name= "user_profile_id")
     private UserProfile userProfile;
 
@@ -53,5 +53,6 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+
     }
 }
