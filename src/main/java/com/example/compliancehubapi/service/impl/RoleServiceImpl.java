@@ -8,6 +8,7 @@ import com.example.compliancehubapi.service.RoleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -39,20 +40,21 @@ public class RoleServiceImpl implements RoleService {
      * @param roleName the name of the role to be added
      */
     @Override
+    @Transactional
     public void addRoleToUser(String username, String roleName) {
         log.info("Adding role {} to user {}", roleName, username);
 
-        // Retrieve the user and role objects from the repository
         User user = userRepository.findByUsername(username);
         Role role = roleRepository.findByName(roleName);
 
+        if (user == null) {
+            throw new IllegalArgumentException("Cannot add role '" + roleName + "' because user '" + username + "' does not exist");
+        }
+        if (role == null) {
+            throw new IllegalArgumentException("Cannot add role '" + roleName + "' to user '" + username + "' because the role does not exist");
+        }
 
-
-        // Add the role to the user's role collection
-      // user.getRole().add(role);
-        user.setRole(role);
-
-        // Save the user to persist the changes
+        user.getRoles().add(role);
         userRepository.save(user);
     }
 }

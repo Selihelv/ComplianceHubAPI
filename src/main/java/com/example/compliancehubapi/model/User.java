@@ -33,25 +33,25 @@ public class User {
 
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name= "userProfile_id")
+    @JoinColumn(name= "user_profile_id")
     private UserProfile userProfile;
 
-   @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-   @JoinColumn(name = "role_id")
-    private Role role;
 
-   @OneToMany( mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = EAGER)
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Collection<Role> roles = new ArrayList<>();
+
+   @OneToMany( mappedBy = "user",cascade = CascadeType.ALL)
    private List<ComplianceDocument> complianceDocuments;
 
-    // TODO: eksik kalan arg ları ekle
 
-    public User( String username, String password, ComplianceStatusEnum complianceStatus,
-                UserProfile userProfile, Role role, List<ComplianceDocument> complianceDocuments) {
+
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.complianceStatus = complianceStatus;
-        this.userProfile = userProfile;
-        this.role = role;
-        this.complianceDocuments = complianceDocuments;
     }
 }
