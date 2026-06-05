@@ -47,7 +47,7 @@ public class User {
     private Collection<Role> roles = new ArrayList<>();
 
    @OneToMany( mappedBy = "user",cascade = CascadeType.ALL)
-   private List<ComplianceDocument> complianceDocuments;
+   private List<ComplianceDocument> complianceDocuments = new ArrayList<>();
 
 
 

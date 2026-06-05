@@ -21,3 +21,9 @@ spring:
     error:
       include-stacktrace: never
 
+
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        model: gpt-5.4-mini

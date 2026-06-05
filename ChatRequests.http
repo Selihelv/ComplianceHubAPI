@@ -1,0 +1,54 @@
+### GET hello
+GET http://localhost:8080/chat/hello
+
+### Ask
+GET http://localhost:8080/chat/ask?
+    question="what's my name?
+
+### Ask
+GET http://localhost:8080/chat/ask?
+    question=my name is Selim. I'm your creator.
+
+### Ask
+GET http://localhost:8080/chat/ask?
+    question=do you have access to my local databace named compliance_hub_db?
+
+### Ask
+GET http://localhost:8080/chat/ask?
+    question=explaine me how can i conect my local database to you
+
+### Ask
+GET http://localhost:8080/chat/ask?
+    question=what is the date of today?
+
+### Ask
+GET http://localhost:8080/chat/ask?
+    question=saat kaç?
+
+### Ask
+GET http://localhost:8080/chat/ask?
+    question=exist il des chauves-souris rat?
+
+### Chat1 sh001
+GET http://localhost:8080/chat/chatbot/sh001?
+    question=hello my name is Selim. nice to meet you
+
+### Chat2 sh001
+GET http://localhost:8080/chat/chatbot/sh001?
+    question=what is my name?
+
+### Chat ml001
+GET http://localhost:8080/chat/chatbot/ml001?
+    question=what is my name?
+
+### Chat3 sh001
+GET http://localhost:8080/chat/chatbot/sh001?
+    question=can you help me with my compliance documents?
+
+### Chat4 sh001
+GET http://localhost:8080/chat/chatbot/sh001?
+    question=can you give me some cookies?
+
+### Chat5 sh001
+GET http://localhost:8080/chat/chatbot/sh001?
+    question=I want to tell toys in spain but i don't know what laws i have to be compliant with

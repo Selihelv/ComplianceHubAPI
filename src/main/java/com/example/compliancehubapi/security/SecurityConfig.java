@@ -15,8 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static org.springframework.http.HttpMethod.GET;
-import static org.springframework.http.HttpMethod.POST;
+import static org.springframework.http.HttpMethod.*;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 /**
@@ -69,15 +68,19 @@ public class SecurityConfig {
                         .sessionCreationPolicy(STATELESS))
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/api/login/**").permitAll()// public endpoint, we could add more if we wanted to
+                        .requestMatchers("/api/regulation").permitAll()
                         .requestMatchers("/api/greet").permitAll()
-                        .requestMatchers("/api/users").permitAll()
+                        .requestMatchers(POST,"/api/users").permitAll()
                         .requestMatchers("/api/greet/personal").permitAll()
                         .requestMatchers("/api/users/**").permitAll()
+                        .requestMatchers(DELETE,"/api/users/**").permitAll()
+                        .requestMatchers(POST, "/api/regulation").permitAll()
                        //.requestMatchers(GET, "/api/users").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
                        // .requestMatchers(POST, "/api/users").hasAnyAuthority("ROLE_ADMIN")
                         .requestMatchers(POST, "/api/roles").permitAll()
                         .requestMatchers(POST, "/api/roles/add-to-user").permitAll()
-                        .anyRequest().authenticated()); // any other endpoints require authentication
+                        .anyRequest().permitAll());
+                       // .anyRequest().authenticated()); // any other endpoints require authentication
 
         // add the custom authentication filter to the http security object
         http.addFilter(customAuthenticationFilter);

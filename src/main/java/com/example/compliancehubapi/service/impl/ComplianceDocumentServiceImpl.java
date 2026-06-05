@@ -61,6 +61,12 @@ public class ComplianceDocumentServiceImpl implements ComplianceDocumentService 
         complianceDocumentToUpdate.setDocumentType(complianceDocument.getDocumentType());
         complianceDocumentToUpdate.setDocumentStatus(complianceDocument.getDocumentStatus());
 
+        if(complianceDocument.getRegulations() != null){
+            complianceDocumentToUpdate.setRegulations(complianceDocument.getRegulations());
+            complianceDocumentToUpdate.getRegulations().forEach( regulation ->
+                    regulation.getRequired_documents().add(complianceDocumentToUpdate));
+        }
+
         return complianceDocumentRepository.save(complianceDocumentToUpdate);
     }
 

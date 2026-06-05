@@ -1,0 +1,41 @@
+### GET all regs
+GET http://localhost:8080/api/regulation
+
+### CREATE new reg
+POST http://localhost:8080/api/regulation
+Content-Type: application/json
+
+{
+  "description": "Sellers has tu work with some Labs to get their products tested",
+  "marketplace": "FR",
+  "required_documents": [],
+  "title": "Children's Toys FR"
+}
+
+### UPDATE regulation
+PUT http://localhost:8080/api/regulation/3
+Content-Type: application/json
+
+{
+  "description": "Sellers has tu work with some Labs to get their products tested",
+  "marketplace": "BE",
+  "title": "Chilren's Toys BE"
+}
+### UPDATE regulation 3
+PUT http://localhost:8080/api/regulation/3
+Content-Type: application/json
+
+{
+  "description": "Sellers has tu work with some Labs to get their products tested",
+  "marketplace": "FR",
+  "title": "Jouets pour enfants FR"
+}
+
+### GET regulation by ID
+GET http://localhost:8080/api/regulation/3
+
+### GET regulation by MP
+GET http://localhost:8080/api/regulation/marketplace/BE
+
+### DELETE regulation
+DELETE http://localhost:8080/api/regulation/1

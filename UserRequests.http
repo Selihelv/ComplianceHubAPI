@@ -4,25 +4,14 @@ GET http://localhost:8080/api/users
 ### GET USERS BY ID
 GET http://localhost:8080/api/users/5
 
-###
-GET http://localhost:8080/api/greet
-
-###
+### CREATE NEW USER
 POST http://localhost:8080/api/users
 Content-Type: application/json
 
 {
-  "username": "Test userProfile",
-  "password": "ash+45672kjgxcWEYK",
+  "username": "Test usernameee",
+  "password": "ash+4cWEYK",
   "complianceStatus": "NON_COMPLIANT",
-  "userProfile": [
-    {
-      "firstName": "user",
-      "lastName": "Profile",
-      "email": "test@email.com",
-      "marketplace":
-    }
-  ],
   "roles": [
     {
       "id": 1,
@@ -31,4 +20,37 @@ Content-Type: application/json
   ]
 }
 
-###
+### CREATE NEW USER WITH USERPROFILE INFO (not working)
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "username": "Test username2",
+  "password": "ash+45672kjgxcWEYK",
+  "complianceStatus": "NON_COMPLIANT",
+  "roles": [
+    {
+      "id": 1,
+      "roleName": "Seller"
+    }
+  ],
+  "userProfile": [
+    {
+      "firstName": "user",
+      "lastName": "Profile",
+      "email": "test@email.com"
+    }
+  ]
+}
+
+
+### UPDATE USER
+PUT http://localhost:8080/api/users/6
+Content-Type: application/json
+
+{
+"username": "User6"
+}
+
+### DELETE USER (check this again)
+DELETE http://localhost:8080/api/users/6
