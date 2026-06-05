@@ -29,7 +29,7 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public Role save(Role role) {
-        log.info("Saving new role {} to the database", role.getName());
+        log.info("Saving new role {} to the database", role.getRoleName());
         return roleRepository.save(role);
     }
 
@@ -45,7 +45,7 @@ public class RoleServiceImpl implements RoleService {
         log.info("Adding role {} to user {}", roleName, username);
 
         User user = userRepository.findByUsername(username);
-        Role role = roleRepository.findByName(roleName);
+        Role role = roleRepository.findByRoleName(roleName);
 
         if (user == null) {
             throw new IllegalArgumentException("Cannot add role '" + roleName + "' because user '" + username + "' does not exist");

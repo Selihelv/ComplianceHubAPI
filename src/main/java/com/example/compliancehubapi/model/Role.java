@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import static jakarta.persistence.FetchType.LAZY;
 
@@ -25,14 +24,14 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String roleName;
 
     @ManyToMany(mappedBy = "roles", fetch = LAZY)
     @JsonIgnore
     private Collection<User> users = new ArrayList<>();
 
 
-    public Role( String name) {
-        this.name = name;
+    public Role( String roleName) {
+        this.roleName = roleName;
     }
 }
