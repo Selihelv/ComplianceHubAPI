@@ -1,6 +1,7 @@
 package com.example.compliancehubapi.model;
 
 import com.example.compliancehubapi.enums.ComplianceStatusEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
