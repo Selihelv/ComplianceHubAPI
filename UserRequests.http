@@ -1,0 +1,34 @@
+### GET ALL USERS
+GET http://localhost:8080/api/users
+
+### GET USERS BY ID
+GET http://localhost:8080/api/users/5
+
+###
+GET http://localhost:8080/api/greet
+
+###
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "username": "Test userProfile",
+  "password": "ash+45672kjgxcWEYK",
+  "complianceStatus": "NON_COMPLIANT",
+  "userProfile": [
+    {
+      "firstName": "user",
+      "lastName": "Profile",
+      "email": "test@email.com",
+      "marketplace":
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "roleName": "Seller"
+    }
+  ]
+}
+
+###
