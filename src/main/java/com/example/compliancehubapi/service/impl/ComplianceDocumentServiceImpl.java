@@ -41,16 +41,16 @@ public class ComplianceDocumentServiceImpl implements ComplianceDocumentService 
         return complianceDocumentRepository.findComplianceDocumentsByDocumentStatus(status);
     }
 
-    public List<ComplianceDocument> getComplianceDocumentsByUserId(Long userId){
-        log.info("Fetching Compliance documents by user id {}", userId);
-        return complianceDocumentRepository.findComplianceDocumentsByUserId(userId);
-    }
 
     public List<ComplianceDocument> getComplianceDocumentsByDocumentType(DocumentTypeEnum documentType){
        log.info("Fetching Compliance documents by document type {}", documentType);
         return complianceDocumentRepository.findComplianceDocumentsByDocumentType(documentType);
     }
 
+    public List<ComplianceDocument> getComplianceDocumentsByUserId(Long userId){
+        log.info("Fetching Compliance documents by user id {}", userId);
+        return complianceDocumentRepository.findComplianceDocumentsByUserId(userId);
+    }
 
     public ComplianceDocument updateComplianceDocument(Long id, ComplianceDocument complianceDocument){
         log.info("Updating compliance document with id {}", id);

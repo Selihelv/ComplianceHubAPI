@@ -68,25 +68,55 @@ public class SecurityConfig {
                         .sessionCreationPolicy(STATELESS))
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/api/login/**").permitAll()// public endpoint, we could add more if we wanted to
+
+                         //USER
                         .requestMatchers(GET, "/api/users").permitAll()
                         .requestMatchers(POST, "/api/users").permitAll()
-                        .requestMatchers(GET, "api/users/compliance-status/**").permitAll()
-                        .requestMatchers(GET, "/api/users/{{id}}").permitAll()
-                        .requestMatchers(PUT, "api/users/{{id}}").permitAll()
-                        .requestMatchers(DELETE, "/api/users/{{id}}").permitAll()
+                        .requestMatchers(GET, "/api/users/compliance-status/**").permitAll()
+                        .requestMatchers(GET, "/api/users/{id}").permitAll()
+                        .requestMatchers(PUT, "/api/users/{id}").permitAll()
+                        .requestMatchers(DELETE, "/api/users/{id}").permitAll()
 
+                        // UserProfile
+                        .requestMatchers(GET,"/api/user-profile").permitAll()
+                        .requestMatchers(POST,"/api/user-profile").permitAll()
+                        .requestMatchers(GET,"/api/user-profile/by-user/{userId}").permitAll()
+                        .requestMatchers(GET,"/api/user-profile/{userId}").permitAll()
+                        .requestMatchers(PUT,"/api/user-profile/{userId}").permitAll()
+                        .requestMatchers(DELETE, "/api/user-profile/{{userId}}").permitAll()
 
-                        .requestMatchers("/api/regulation").permitAll()
-                        .requestMatchers("/api/greet").permitAll()
-                        .requestMatchers(POST,"/api/users").permitAll()
-                        .requestMatchers("/api/greet/personal").permitAll()
-                        .requestMatchers("/api/users/**").permitAll()
-                        .requestMatchers(DELETE,"/api/users/**").permitAll()
-                        .requestMatchers(POST, "/api/regulation").permitAll()
-                       //.requestMatchers(GET, "/api/users").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-                       // .requestMatchers(POST, "/api/users").hasAnyAuthority("ROLE_ADMIN")
+                        // Role
                         .requestMatchers(POST, "/api/roles").permitAll()
                         .requestMatchers(POST, "/api/roles/add-to-user").permitAll()
+
+                        //Regulation
+                        .requestMatchers(GET,"/api/regulation").permitAll()
+                        .requestMatchers(POST, "/api/regulation").permitAll()
+                        .requestMatchers(GET, "/api/regulation/marketplace/{marketplace}").permitAll()
+                        .requestMatchers(GET, "/api/regulation/{id}").permitAll()
+                        .requestMatchers(PUT, "/api/regulation/{id}").permitAll()
+                        .requestMatchers(DELETE, "/api/regulation/{id}").permitAll()
+
+                        //ComplianceDocument
+                        .requestMatchers(GET,"/api/compliance-document").permitAll()
+                        .requestMatchers(POST, "/api/compliance-document").permitAll()
+                        .requestMatchers(GET, "api/compliance-document/document-status/{status}").permitAll()
+                        .requestMatchers(GET, "/api/compliance-document/document-type/{type}").permitAll()
+                        .requestMatchers(GET,"/api/compliance-document/user/{userId}").permitAll()
+                        .requestMatchers(GET, "/api/compliance-document/{id}").permitAll()
+                        .requestMatchers(PUT, "/api/compliance-document/{id}").permitAll()
+                        .requestMatchers(DELETE,"api/compliance-document/{id}").permitAll()
+
+                        //CHAT
+                        .requestMatchers(GET, "/chat/**").permitAll()
+
+                        //GREET
+                        .requestMatchers("/api/greet").permitAll()
+                        .requestMatchers("/api/greet/personal").permitAll()
+
+                       //.requestMatchers(GET, "/api/users").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                       // .requestMatchers(POST, "/api/users").hasAnyAuthority("ROLE_ADMIN")
+
                         .anyRequest().permitAll());
                        // .anyRequest().authenticated()); // any other endpoints require authentication
 

@@ -1,6 +1,7 @@
 package com.example.compliancehubapi.controller;
 
 import com.example.compliancehubapi.enums.DocumentStatusEnum;
+import com.example.compliancehubapi.enums.DocumentTypeEnum;
 import com.example.compliancehubapi.model.ComplianceDocument;
 import com.example.compliancehubapi.service.ComplianceDocumentService;
 import lombok.RequiredArgsConstructor;
@@ -35,10 +36,16 @@ public class ComplianceDocumentController {
         return complianceDocumentService.getComplianceDocumentById(id);
     }
 
-    @GetMapping("/status/{status}")
+    @GetMapping("/document-status/{status}")
     @ResponseStatus(HttpStatus.OK)
     public List<ComplianceDocument> getComplianceDocumentsByDocumentStatus(@PathVariable DocumentStatusEnum status){
         return complianceDocumentService.getComplianceDocumentsByDocumentStatus(status);
+    }
+
+    @GetMapping("/document-type/{type}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<ComplianceDocument> getComplianceDocumentsByDocumentType(@PathVariable DocumentTypeEnum type){
+        return complianceDocumentService.getComplianceDocumentsByDocumentType(type);
     }
 
     @GetMapping("/user/{userId}")

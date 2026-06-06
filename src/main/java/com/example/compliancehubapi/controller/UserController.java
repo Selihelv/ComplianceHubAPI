@@ -18,6 +18,11 @@ public class UserController {
 
     private final UserService userService;
 
+    @PostMapping("/users")
+    @ResponseStatus(HttpStatus.CREATED)
+    public User saveUser(@RequestBody User user) {
+        return userService.saveUser(user);
+    }
 
     @GetMapping("/users")
     @ResponseStatus(HttpStatus.OK)
@@ -43,11 +48,6 @@ public class UserController {
         return userService.updateUser(id, user);
     }
 
-    @PostMapping("/users")
-    @ResponseStatus(HttpStatus.CREATED)
-    public User saveUser(@RequestBody User user) {
-       return userService.saveUser(user);
-    }
 
     @DeleteMapping("/users/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

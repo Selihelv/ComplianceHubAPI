@@ -35,7 +35,7 @@ public class RegulationServiceImpl implements RegulationService {
 
     public List<Regulation> getRegulationsByMarketplace(MarketplaceEnum marketplace){
         log.info("Fetching regulations by marketplace {}", marketplace);
-        return regulationRepository.findByMarketplace(marketplace);
+        return regulationRepository.findRegulationsByMarketplace(marketplace);
     }
 
     public Regulation updateRegulation(Long id, Regulation regulation){

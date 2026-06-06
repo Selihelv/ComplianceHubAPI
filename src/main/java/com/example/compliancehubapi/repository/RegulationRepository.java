@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface RegulationRepository extends JpaRepository<Regulation, Long> {
-    List<Regulation> findByMarketplace(MarketplaceEnum marketplace);
+
+    List<Regulation> findRegulationsByMarketplace(MarketplaceEnum marketplace);
 }

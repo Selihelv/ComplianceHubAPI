@@ -17,8 +17,6 @@ public class RoleServiceImpl implements RoleService {
 
 
     private final UserRepository userRepository;
-
-
     private final RoleRepository roleRepository;
 
     /**

@@ -15,8 +15,8 @@ public interface ComplianceDocumentService {
      Optional<ComplianceDocument> getComplianceDocumentById(Long id);
 
      List<ComplianceDocument> getComplianceDocumentsByDocumentStatus(DocumentStatusEnum status);
-     List<ComplianceDocument> getComplianceDocumentsByUserId(Long userId);
      List<ComplianceDocument> getComplianceDocumentsByDocumentType(DocumentTypeEnum documentType);
+     List<ComplianceDocument> getComplianceDocumentsByUserId(Long userId);
 
      ComplianceDocument updateComplianceDocument(Long id, ComplianceDocument complianceDocument);
      void deleteComplianceDocumentById(Long id);

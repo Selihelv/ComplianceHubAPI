@@ -24,22 +24,32 @@ public class UserProfileController {
     }
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public List<UserProfile> getAllUserProfiles() {
         return userProfileService.getAllUserProfiles();
     }
 
     @GetMapping ("/{userId}")
+    @ResponseStatus(HttpStatus.OK)
     public UserProfile getUserProfileById(@PathVariable Long userId) {
         return userProfileService.getUserProfileById(userId);
     }
 
-    @GetMapping
+    @GetMapping("/by-user/{userId}")
+    @ResponseStatus(HttpStatus.OK)
     public Optional<UserProfile> getUserProfileByUserId(@PathVariable Long userId) {
         return userProfileService.getUserProfileByUserId(userId);
     }
 
     @PutMapping("/{userId}")
+    @ResponseStatus(HttpStatus.OK)
     public UserProfile updateUserProfile(@PathVariable Long userId, @RequestBody UserProfile updatedUserProfile) {
     return userProfileService.updateUserProfile(userId, updatedUserProfile);
+    }
+
+    @DeleteMapping("/{userId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteUserProfileById(@PathVariable Long userId) {
+        userProfileService.deleteUserProfileById(userId);
     }
 }

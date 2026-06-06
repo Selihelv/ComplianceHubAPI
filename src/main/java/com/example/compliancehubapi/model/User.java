@@ -13,9 +13,7 @@ import java.util.List;
 
 import static jakarta.persistence.FetchType.EAGER;
 
-/**
- * Entity class for representing a User in the database
- */
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -30,6 +28,7 @@ public class User {
 
     private String password;
 
+    @Enumerated(EnumType.STRING)
     private ComplianceStatusEnum complianceStatus = ComplianceStatusEnum.NON_COMPLIANT;
 
 
