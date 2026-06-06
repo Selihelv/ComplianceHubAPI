@@ -38,4 +38,6 @@ public class Regulation {
         this.description = description;
         this.marketplace = marketplace;
     }
+
+
 }

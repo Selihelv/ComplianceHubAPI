@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface ComplianceDocumentService {
 
-     ComplianceDocument saveComplianceDocument(ComplianceDocument complianceDocument);
+     ComplianceDocument saveComplianceDocument(ComplianceDocument complianceDocument, String username);
      List<ComplianceDocument> getAllComplianceDocuments();
      Optional<ComplianceDocument> getComplianceDocumentById(Long id);
 

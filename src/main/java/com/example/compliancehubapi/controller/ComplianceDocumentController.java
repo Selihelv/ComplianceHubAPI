@@ -6,6 +6,7 @@ import com.example.compliancehubapi.model.ComplianceDocument;
 import com.example.compliancehubapi.service.ComplianceDocumentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,8 +21,9 @@ public class ComplianceDocumentController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ComplianceDocument saveComplianceDocument(@RequestBody ComplianceDocument complianceDocument){
-    return complianceDocumentService.saveComplianceDocument(complianceDocument);
+    public ComplianceDocument saveComplianceDocument(@RequestBody ComplianceDocument complianceDocument, Authentication authentication){
+        String username = authentication.getName();
+    return complianceDocumentService.saveComplianceDocument(complianceDocument, username);
     }
 
     @GetMapping

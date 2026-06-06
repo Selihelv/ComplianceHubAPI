@@ -3,12 +3,15 @@ package com.example.compliancehubapi.service.impl;
 import com.example.compliancehubapi.enums.DocumentStatusEnum;
 import com.example.compliancehubapi.enums.DocumentTypeEnum;
 import com.example.compliancehubapi.model.ComplianceDocument;
+import com.example.compliancehubapi.model.User;
 import com.example.compliancehubapi.repository.ComplianceDocumentRepository;
+import com.example.compliancehubapi.repository.UserRepository;
 import com.example.compliancehubapi.service.ComplianceDocumentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,9 +21,17 @@ import java.util.Optional;
 public class ComplianceDocumentServiceImpl implements ComplianceDocumentService {
 
     private final ComplianceDocumentRepository complianceDocumentRepository;
+    private final UserRepository userRepository;
 
-    public ComplianceDocument saveComplianceDocument(ComplianceDocument complianceDocument){
-        log.info("Saving compliance document: {}", complianceDocument);
+    public ComplianceDocument saveComplianceDocument(ComplianceDocument complianceDocument, String username){
+        log.info("Saving compliance document: {} for user {}", complianceDocument, username);
+
+        User user = userRepository.findByUsername(username);
+        if (user == null){
+            throw new RuntimeException("User with username: " + username + " not found.");
+        }
+        complianceDocument.setUser(user);
+        complianceDocument.setDocumentUploadDate(LocalDate.now());
         return complianceDocumentRepository.save(complianceDocument);
     }
 

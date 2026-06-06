@@ -67,58 +67,56 @@ public class SecurityConfig {
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(STATELESS))
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/api/login/**").permitAll()// public endpoint, we could add more if we wanted to
+                        .requestMatchers("/api/login/**").permitAll()// public endpoint to login
 
-                         //USER
-                        .requestMatchers(GET, "/api/users").permitAll()
-                        .requestMatchers(POST, "/api/users").permitAll()
-                        .requestMatchers(GET, "/api/users/compliance-status/**").permitAll()
-                        .requestMatchers(GET, "/api/users/{id}").permitAll()
-                        .requestMatchers(PUT, "/api/users/{id}").permitAll()
-                        .requestMatchers(DELETE, "/api/users/{id}").permitAll()
+                         //User
+                        .requestMatchers(GET, "/api/users").hasAnyAuthority("Agent") // only agents can get all users
+                        .requestMatchers(POST, "/api/users").permitAll() // public endpoint to create a new user.
+                        .requestMatchers(GET, "/api/users/compliance-status/{complianceStatus}").hasAnyAuthority("Agent")
+                        .requestMatchers(GET, "/api/users/{id}").hasAnyAuthority("Seller","Agent")
+                        .requestMatchers(PUT, "/api/users/{id}").hasAnyAuthority("Seller","Agent")
+                        .requestMatchers(DELETE, "/api/users/{id}").hasAnyAuthority("Agent")
 
                         // UserProfile
-                        .requestMatchers(GET,"/api/user-profile").permitAll()
+                        .requestMatchers(GET,"/api/user-profile").hasAnyAuthority("Agent")
                         .requestMatchers(POST,"/api/user-profile").permitAll()
-                        .requestMatchers(GET,"/api/user-profile/by-user/{userId}").permitAll()
-                        .requestMatchers(GET,"/api/user-profile/{id}").permitAll()
-                        .requestMatchers(PUT,"/api/user-profile/{userId}").permitAll()
-                        .requestMatchers(DELETE, "/api/user-profile/{userId}").permitAll()
+                        .requestMatchers(GET,"/api/user-profile/by-user/{userId}").hasAnyAuthority("Seller","Agent")
+                        .requestMatchers(GET,"/api/user-profile/{id}").hasAnyAuthority("Seller", "Agent")
+                        .requestMatchers(PUT,"/api/user-profile/{userId}").hasAnyAuthority("Seller")
+                        .requestMatchers(DELETE, "/api/user-profile/{userId}").hasAnyAuthority( "Agent") //if Sellers delete their User, this should be deleted also
 
-                        // Role
+                        // Role //TODO: define who can assign roles
                         .requestMatchers(POST, "/api/roles").permitAll()
                         .requestMatchers(POST, "/api/roles/add-to-user").permitAll()
 
                         //Regulation
-                        .requestMatchers(GET,"/api/regulation").permitAll()
-                        .requestMatchers(POST, "/api/regulation").permitAll()
-                        .requestMatchers(GET, "/api/regulation/marketplace/{marketplace}").permitAll()
-                        .requestMatchers(GET, "/api/regulation/{id}").permitAll()
-                        .requestMatchers(PUT, "/api/regulation/{id}").permitAll()
-                        .requestMatchers(DELETE, "/api/regulation/{id}").permitAll()
+                        .requestMatchers(GET,"/api/regulation").hasAnyAuthority("Regulation Manager")
+                        .requestMatchers(POST, "/api/regulation").hasAnyAuthority("Regulation Manager")
+                        .requestMatchers(GET, "/api/regulation/marketplace/{marketplace}").hasAnyAuthority("Regulation Manager")
+                        .requestMatchers(GET, "/api/regulation/{id}").hasAnyAuthority("Regulation Manager")
+                        .requestMatchers(PUT, "/api/regulation/{id}").hasAnyAuthority("Regulation Manager")
+                        .requestMatchers(DELETE, "/api/regulation/{id}").hasAnyAuthority("Regulation Manager")
 
                         //ComplianceDocument
-                        .requestMatchers(GET,"/api/compliance-document").permitAll()
-                        .requestMatchers(POST, "/api/compliance-document").permitAll()
-                        .requestMatchers(GET, "/api/compliance-document/document-status/{status}").permitAll()
-                        .requestMatchers(GET, "/api/compliance-document/document-type/{type}").permitAll()
-                        .requestMatchers(GET,"/api/compliance-document/user/{userId}").permitAll()
-                        .requestMatchers(GET, "/api/compliance-document/{id}").permitAll()
-                        .requestMatchers(PUT, "/api/compliance-document/{id}").permitAll()
-                        .requestMatchers(DELETE,"/api/compliance-document/{id}").permitAll()
+                        .requestMatchers(GET,"/api/compliance-document").hasAnyAuthority("Agent")
+                        .requestMatchers(POST, "/api/compliance-document").hasAnyAuthority("Seller")
+                        .requestMatchers(GET, "/api/compliance-document/document-status/{status}").hasAnyAuthority("Agent")
+                        .requestMatchers(GET, "/api/compliance-document/document-type/{type}").hasAnyAuthority("Agent")
+                        .requestMatchers(GET,"/api/compliance-document/user/{userId}").hasAnyAuthority("Agent")
+                        .requestMatchers(GET, "/api/compliance-document/{id}").hasAnyAuthority("Agent")
+                        .requestMatchers(PUT, "/api/compliance-document/{id}").hasAnyAuthority("Agent")
+                        .requestMatchers(DELETE,"/api/compliance-document/{id}").hasAnyAuthority("Agent")
 
                         //CHAT
                         .requestMatchers(GET, "/chat/**").permitAll()
+                        .requestMatchers(POST, "/chat/chatbot/{conversationId}").authenticated()
 
                         //GREET
                         .requestMatchers("/api/greet").permitAll()
-                        .requestMatchers("/api/greet/personal").permitAll()
+                        .requestMatchers("/api/greet/personal").authenticated()
 
-                       //.requestMatchers(GET, "/api/users").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-                       // .requestMatchers(POST, "/api/users").hasAnyAuthority("ROLE_ADMIN")
-
-                        .anyRequest().permitAll());
-                       // .anyRequest().authenticated()); // any other endpoints require authentication
+                       // .anyRequest().permitAll());
+                        .anyRequest().authenticated()); // any other endpoints require authentication
 
         // add the custom authentication filter to the http security object
         http.addFilter(customAuthenticationFilter);
