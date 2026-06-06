@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
   "description": "Sellers has tu work with some Labs to get their products tested",
-  "marketplace": "FR",
+  "marketplace": "FR, BE",
   "required_documents": [],
   "title": "Children's Toys FR"
 }

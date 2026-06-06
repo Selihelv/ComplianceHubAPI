@@ -1,5 +1,6 @@
 package com.example.compliancehubapi.service.impl;
 
+import com.example.compliancehubapi.model.User;
 import com.example.compliancehubapi.model.UserProfile;
 import com.example.compliancehubapi.repository.UserProfileRepository;
 import com.example.compliancehubapi.repository.UserRepository;
@@ -30,19 +31,20 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
 
-    public UserProfile getUserProfileById(Long userId){
-        log.info("Fetching user profile by user id {}", userId);
-        var user = userRepository.findById(userId).orElseThrow(
-                () -> new RuntimeException("User with id: " + userId + " not found.")
+    public UserProfile getUserProfileById(Long id){
+        log.info("Fetching user profile by id {}", id);
+        var user = userRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("User with id: " + id + " not found.")
         );
 
         return user.getUserProfile();
     }
 
-    //TODO: check if this could work
+
     public Optional<UserProfile> getUserProfileByUserId(Long userId){
         log.info("Fetching user profile by user id {}", userId);
-        return userProfileRepository.findById(userId);
+        return userRepository.findById(userId)
+                .map(User::getUserProfile);
     }
 
     public UserProfile updateUserProfile(Long userId, UserProfile updatedUserProfile){

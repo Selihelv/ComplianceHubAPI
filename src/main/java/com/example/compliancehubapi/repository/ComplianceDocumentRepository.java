@@ -13,5 +13,5 @@ public interface ComplianceDocumentRepository extends JpaRepository<ComplianceDo
 
     List<ComplianceDocument> findComplianceDocumentsByDocumentStatus(DocumentStatusEnum status);
     List<ComplianceDocument> findComplianceDocumentsByDocumentType(DocumentTypeEnum documentType);
-    List<ComplianceDocument> findComplianceDocumentsByUserId(Long userId);
+    List<ComplianceDocument> findComplianceDocumentsByUser_Id(Long userId);
 }

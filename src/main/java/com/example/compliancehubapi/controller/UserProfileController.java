@@ -29,10 +29,10 @@ public class UserProfileController {
         return userProfileService.getAllUserProfiles();
     }
 
-    @GetMapping ("/{userId}")
+    @GetMapping ("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public UserProfile getUserProfileById(@PathVariable Long userId) {
-        return userProfileService.getUserProfileById(userId);
+    public UserProfile getUserProfileById(@PathVariable Long id) {
+        return userProfileService.getUserProfileById(id);
     }
 
     @GetMapping("/by-user/{userId}")

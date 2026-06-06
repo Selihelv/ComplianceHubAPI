@@ -81,9 +81,9 @@ public class SecurityConfig {
                         .requestMatchers(GET,"/api/user-profile").permitAll()
                         .requestMatchers(POST,"/api/user-profile").permitAll()
                         .requestMatchers(GET,"/api/user-profile/by-user/{userId}").permitAll()
-                        .requestMatchers(GET,"/api/user-profile/{userId}").permitAll()
+                        .requestMatchers(GET,"/api/user-profile/{id}").permitAll()
                         .requestMatchers(PUT,"/api/user-profile/{userId}").permitAll()
-                        .requestMatchers(DELETE, "/api/user-profile/{{userId}}").permitAll()
+                        .requestMatchers(DELETE, "/api/user-profile/{userId}").permitAll()
 
                         // Role
                         .requestMatchers(POST, "/api/roles").permitAll()
@@ -100,12 +100,12 @@ public class SecurityConfig {
                         //ComplianceDocument
                         .requestMatchers(GET,"/api/compliance-document").permitAll()
                         .requestMatchers(POST, "/api/compliance-document").permitAll()
-                        .requestMatchers(GET, "api/compliance-document/document-status/{status}").permitAll()
+                        .requestMatchers(GET, "/api/compliance-document/document-status/{status}").permitAll()
                         .requestMatchers(GET, "/api/compliance-document/document-type/{type}").permitAll()
                         .requestMatchers(GET,"/api/compliance-document/user/{userId}").permitAll()
                         .requestMatchers(GET, "/api/compliance-document/{id}").permitAll()
                         .requestMatchers(PUT, "/api/compliance-document/{id}").permitAll()
-                        .requestMatchers(DELETE,"api/compliance-document/{id}").permitAll()
+                        .requestMatchers(DELETE,"/api/compliance-document/{id}").permitAll()
 
                         //CHAT
                         .requestMatchers(GET, "/chat/**").permitAll()

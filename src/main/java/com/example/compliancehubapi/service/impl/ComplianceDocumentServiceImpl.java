@@ -49,7 +49,7 @@ public class ComplianceDocumentServiceImpl implements ComplianceDocumentService 
 
     public List<ComplianceDocument> getComplianceDocumentsByUserId(Long userId){
         log.info("Fetching Compliance documents by user id {}", userId);
-        return complianceDocumentRepository.findComplianceDocumentsByUserId(userId);
+        return complianceDocumentRepository.findComplianceDocumentsByUser_Id(userId);
     }
 
     public ComplianceDocument updateComplianceDocument(Long id, ComplianceDocument complianceDocument){

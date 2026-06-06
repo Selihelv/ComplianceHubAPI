@@ -11,7 +11,7 @@ public interface UserProfileService {
 
     List<UserProfile> getAllUserProfiles();
 
-    UserProfile getUserProfileById(Long userId); // To get the user profile using the user id
+    UserProfile getUserProfileById(Long id); // To get the user profile using the user id
 
     Optional<UserProfile> getUserProfileByUserId(Long userId);
 
