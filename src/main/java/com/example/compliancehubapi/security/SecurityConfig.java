@@ -68,6 +68,14 @@ public class SecurityConfig {
                         .sessionCreationPolicy(STATELESS))
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/api/login/**").permitAll()// public endpoint, we could add more if we wanted to
+                        .requestMatchers(GET, "/api/users").permitAll()
+                        .requestMatchers(POST, "/api/users").permitAll()
+                        .requestMatchers(GET, "api/users/compliance-status/**").permitAll()
+                        .requestMatchers(GET, "/api/users/{{id}}").permitAll()
+                        .requestMatchers(PUT, "api/users/{{id}}").permitAll()
+                        .requestMatchers(DELETE, "/api/users/{{id}}").permitAll()
+
+
                         .requestMatchers("/api/regulation").permitAll()
                         .requestMatchers("/api/greet").permitAll()
                         .requestMatchers(POST,"/api/users").permitAll()

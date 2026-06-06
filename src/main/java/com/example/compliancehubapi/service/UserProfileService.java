@@ -13,6 +13,8 @@ public interface UserProfileService {
 
     UserProfile getUserProfileById(Long userId); // To get the user profile using the user id
 
+    Optional<UserProfile> getUserProfileByUserId(Long userId);
+
     UserProfile updateUserProfile(Long id, UserProfile userProfile);
 
     void deleteUserProfileById(Long userId);

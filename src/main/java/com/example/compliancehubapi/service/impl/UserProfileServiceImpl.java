@@ -29,7 +29,7 @@ public class UserProfileServiceImpl implements UserProfileService {
         return userProfileRepository.findAll();
     }
 
-    // To get the user profile using the user id
+
     public UserProfile getUserProfileById(Long userId){
         log.info("Fetching user profile by user id {}", userId);
         var user = userRepository.findById(userId).orElseThrow(
@@ -39,6 +39,11 @@ public class UserProfileServiceImpl implements UserProfileService {
         return user.getUserProfile();
     }
 
+    //TODO: check if this could work
+    public Optional<UserProfile> getUserProfileByUserId(Long userId){
+        log.info("Fetching user profile by user id {}", userId);
+        return userProfileRepository.findById(userId);
+    }
 
     public UserProfile updateUserProfile(Long userId, UserProfile updatedUserProfile){
         log.info("Updating user profile with id {}", userId);
