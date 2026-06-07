@@ -25,7 +25,6 @@ public class User {
     private Long id;
 
     private String username;
-
     private String password;
 
     @Enumerated(EnumType.STRING)
@@ -46,6 +45,7 @@ public class User {
     private Collection<Role> roles = new ArrayList<>();
 
    @OneToMany( mappedBy = "user",cascade = CascadeType.ALL)
+   @JsonIgnore
    private List<ComplianceDocument> complianceDocuments = new ArrayList<>();
 
 

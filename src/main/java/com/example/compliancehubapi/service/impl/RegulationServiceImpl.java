@@ -30,6 +30,9 @@ public class RegulationServiceImpl implements RegulationService {
 
     public Optional<Regulation> getRegulationById(Long id){
         log.info("Fetching regulation by id {}", id);
+        var regulation = regulationRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("Regulation with id: " + id + " not found.")
+        );
         return regulationRepository.findById(id);
     }
 

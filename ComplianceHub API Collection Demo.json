@@ -1,0 +1,889 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "ComplianceHub API Collection",
+    "description": "Postman collection to test all endpoints of the ComplianceHub API. Run the Login requests first to get JWT tokens.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+
+    {
+      "name": "AUTHENTICATION",
+      "item": [
+        {
+          "name": "Login as Seller (john)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"john\",\n    \"password\": \"jd34+\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/login"
+          },
+          "response": []
+        },
+        {
+          "name": "Login as Seller (jean)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"jean\",\n    \"password\": \"jdp31+\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/login"
+          },
+          "response": []
+        },
+        {
+          "name": "Login as Seller (marie)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"marie\",\n    \"password\": \"ml37+\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/login"
+          },
+          "response": []
+        },
+        {
+          "name": "Login as Agent (james)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"james\",\n    \"password\": \"js35+\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/login"
+          },
+          "response": []
+        },
+        {
+          "name": "Login as Regulation Manager (jane)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"jane\",\n    \"password\": \"jc08+\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/login"
+          },
+          "response": []
+        },
+        {
+          "name": "Login - Wrong Password (expect 403)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"john\",\n    \"password\": \"wrongpassword\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/login"
+          },
+          "response": []
+        }
+      ]
+    },
+
+    {
+      "name": "USERS",
+      "item": [
+        {
+          "name": "Create User (public)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"newuser\",\n    \"password\": \"pass123\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/users"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Users (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/users"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Users - No Token (expect 403)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/users"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Users - Seller Token (expect 403)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/users"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User by ID (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/users/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User by ID (Seller)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/users/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Users by Compliance Status (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/users/compliance-status/NON_COMPLIANT"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Users by Compliance Status - Seller (expect 403)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/users/compliance-status/NON_COMPLIANT"
+          },
+          "response": []
+        },
+        {
+          "name": "Update User (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"john\",\n    \"password\": \"jd34+\",\n    \"complianceStatus\": \"COMPLIANT\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/users/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": "http://localhost:8080/api/users/5"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User - Seller (expect 403)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": "http://localhost:8080/api/users/5"
+          },
+          "response": []
+        }
+      ]
+    },
+
+    {
+      "name": "USER PROFILE",
+      "item": [
+        {
+          "name": "Create User Profile (public)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\",\n    \"email\": \"test.user@example.com\",\n    \"marketplace\": \"ES\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/user-profile"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All User Profiles (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/user-profile"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All User Profiles - Seller (expect 403)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/user-profile"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Profile by ID (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/user-profile/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Profile by ID (Seller)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/user-profile/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Profile by User ID (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/user-profile/by-user/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Update User Profile (Seller)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"john.updated@example.com\",\n    \"marketplace\": \"BE\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/user-profile/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Update User Profile - Agent (expect 403)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"john.updated@example.com\",\n    \"marketplace\": \"BE\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/user-profile/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User Profile (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": "http://localhost:8080/api/user-profile/5"
+          },
+          "response": []
+        }
+      ]
+    },
+
+    {
+      "name": "ROLES",
+      "item": [
+        {
+          "name": "Create Role (public)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"roleName\": \"NewRole\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/roles"
+          },
+          "response": []
+        },
+        {
+          "name": "Assign Role to User (public)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"john\",\n    \"roleName\": \"NewRole\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/roles/add-to-user"
+          },
+          "response": []
+        }
+      ]
+    },
+
+    {
+      "name": "REGULATIONS",
+      "item": [
+        {
+          "name": "Get All Regulations (Regulation Manager)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<REGULATION_MANAGER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/regulation"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Regulations - Seller (expect 403)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/regulation"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Regulations - Agent (expect 403)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/regulation"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Regulation by ID (Regulation Manager)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<REGULATION_MANAGER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/regulation/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Regulations by Marketplace (Regulation Manager)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<REGULATION_MANAGER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/regulation/marketplace/BE"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Regulation (Regulation Manager)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<REGULATION_MANAGER_TOKEN>" }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Spanish seller identity check\",\n    \"description\": \"Spanish marketplace sellers must provide a valid national ID before activation.\",\n    \"marketplace\": \"ES\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/regulation"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Regulation - Seller (expect 403)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Spanish seller identity check\",\n    \"description\": \"Spanish marketplace sellers must provide a valid national ID before activation.\",\n    \"marketplace\": \"ES\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/regulation"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Regulation (Regulation Manager)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<REGULATION_MANAGER_TOKEN>" }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Belgian VAT seller verification (updated)\",\n    \"description\": \"Updated: Belgian sellers must provide identity, VAT and address proof.\",\n    \"marketplace\": \"BE\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/regulation/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Regulation (Regulation Manager)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<REGULATION_MANAGER_TOKEN>" }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": "http://localhost:8080/api/regulation/3"
+          },
+          "response": []
+        }
+      ]
+    },
+
+    {
+      "name": "COMPLIANCE DOCUMENTS",
+      "item": [
+        {
+          "name": "Upload Compliance Document (Seller)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"documentName\": \"John Doe new passport\",\n    \"documentStatus\": \"PENDING\",\n    \"documentType\": \"ID\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/compliance-document"
+          },
+          "response": []
+        },
+        {
+          "name": "Upload Compliance Document - Agent (expect 403)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"documentName\": \"Some doc\",\n    \"documentStatus\": \"PENDING\",\n    \"documentType\": \"VAT\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/compliance-document"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Compliance Documents (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/compliance-document"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Compliance Documents - Seller (expect 403)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/compliance-document"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Compliance Document by ID (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/compliance-document/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Compliance Documents by Status PENDING (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/compliance-document/document-status/PENDING"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Compliance Documents by Status APPROVED (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/compliance-document/document-status/APPROVED"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Compliance Documents by Status REJECTED (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/compliance-document/document-status/REJECTED"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Compliance Documents by Type ID (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/compliance-document/document-type/ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Compliance Documents by Type VAT (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/compliance-document/document-type/VAT"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Compliance Documents by Type BUSINESS_CERTIFICATE (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/compliance-document/document-type/BUSINESS_CERTIFICATE"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Compliance Documents by User ID (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/compliance-document/user/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Compliance Document (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"documentName\": \"John Doe passport\",\n    \"documentStatus\": \"APPROVED\",\n    \"documentType\": \"ID\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "http://localhost:8080/api/compliance-document/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Compliance Document (Agent)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<AGENT_TOKEN>" }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": "http://localhost:8080/api/compliance-document/5"
+          },
+          "response": []
+        }
+      ]
+    },
+
+    {
+      "name": "CHAT",
+      "item": [
+        {
+          "name": "Chat Hello (public)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/chat/hello"
+          },
+          "response": []
+        },
+        {
+          "name": "Chat Ask (public)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/chat/ask?question=What is GDPR?",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["chat", "ask"],
+              "query": [{ "key": "question", "value": "What is GDPR?" }]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Chatbot with Memory - First message",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/chat/chatbot/conv-001?question=What documents does a Belgian seller need?",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["chat", "chatbot", "conv-001"],
+              "query": [{ "key": "question", "value": "What documents does a Belgian seller need?" }]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Chatbot with Memory - Follow-up (same conv-001)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/chat/chatbot/conv-001?question=And what about French sellers?",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["chat", "chatbot", "conv-001"],
+              "query": [{ "key": "question", "value": "And what about French sellers?" }]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Chatbot - Guardrail Test (expect DENIED REQUEST)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/chat/chatbot/conv-002?question=What is the best football team in Spain?",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["chat", "chatbot", "conv-002"],
+              "query": [{ "key": "question", "value": "What is the best football team in Spain?" }]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+
+    {
+      "name": "GREET",
+      "item": [
+        {
+          "name": "Greet (public)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/greet"
+          },
+          "response": []
+        },
+        {
+          "name": "Greet Personal (authenticated)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": { "token": "<SELLER_TOKEN>" }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/greet/personal"
+          },
+          "response": []
+        },
+        {
+          "name": "Greet Personal - No Token (expect 403)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8080/api/greet/personal"
+          },
+          "response": []
+        }
+      ]
+    }
+
+  ]
+}

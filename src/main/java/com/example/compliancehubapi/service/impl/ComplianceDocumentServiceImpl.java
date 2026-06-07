@@ -84,6 +84,12 @@ public class ComplianceDocumentServiceImpl implements ComplianceDocumentService 
 
     public void deleteComplianceDocumentById(Long id){
         log.info("Deleting compliance document with id {}", id);
+        var doc = complianceDocumentRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("Compliance document with id: " + id + " not found.")
+        );
+        doc.getRegulations().forEach( regulation ->
+                regulation.getRequired_documents().remove(doc)
+        );
         complianceDocumentRepository.deleteById(id);
     }
 }

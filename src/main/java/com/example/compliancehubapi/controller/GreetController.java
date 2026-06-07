@@ -12,7 +12,7 @@ public class GreetController {
 
     @GetMapping
     public String greet() {
-        return "Hello, World!";
+        return "Hello, Compliance World!";
     }
 
 

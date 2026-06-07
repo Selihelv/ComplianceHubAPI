@@ -2,6 +2,7 @@ package com.example.compliancehubapi.model;
 
 import com.example.compliancehubapi.enums.DocumentStatusEnum;
 import com.example.compliancehubapi.enums.DocumentTypeEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,7 @@ public class ComplianceDocument {
     private LocalDate documentUploadDate;
 
     @Enumerated(EnumType.STRING)
-    private DocumentStatusEnum documentStatus;
+    private DocumentStatusEnum documentStatus = DocumentStatusEnum.PENDING;
 
     @Enumerated(EnumType.STRING)
     private DocumentTypeEnum documentType;

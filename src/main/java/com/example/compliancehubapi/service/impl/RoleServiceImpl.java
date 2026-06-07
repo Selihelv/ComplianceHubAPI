@@ -1,5 +1,6 @@
 package com.example.compliancehubapi.service.impl;
 
+import com.example.compliancehubapi.enums.ComplianceStatusEnum;
 import com.example.compliancehubapi.model.Role;
 import com.example.compliancehubapi.model.User;
 import com.example.compliancehubapi.repository.RoleRepository;
@@ -10,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -18,6 +21,7 @@ public class RoleServiceImpl implements RoleService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final List<String> nonSellerRoles = List.of("Agent", "Regulation Manager");
 
     /**
      * Saves a new role to the database
@@ -53,6 +57,10 @@ public class RoleServiceImpl implements RoleService {
         }
 
         user.getRoles().add(role);
+        if (nonSellerRoles.contains(roleName)) {
+            user.setComplianceStatus(ComplianceStatusEnum.NON_COMPLIANT);
+        }
+
         userRepository.save(user);
     }
 }

@@ -12,7 +12,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.beans.Transient;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -83,15 +85,22 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 () -> new RuntimeException("User with id: " + id + " not found.")
         );
         userToUpdate.setUsername(user.getUsername());
-        userToUpdate.setPassword(user.getPassword());
+        userToUpdate.setPassword(passwordEncoder.encode(user.getPassword()));
         userToUpdate.setComplianceStatus(user.getComplianceStatus());
         userToUpdate.setRoles(user.getRoles());
         return userRepository.save(userToUpdate);
     }
 
+    @Transactional
     public void deleteUserById(Long id) {
        log.info("Deleting user with id {}", id);
-        userRepository.deleteById(id);
+       var user = userRepository.findById(id).orElseThrow(
+               () -> new RuntimeException("User with id: " + id + " not found.")
+       );
+       user.getComplianceDocuments().forEach(complianceDocument ->
+               complianceDocument.getRegulations().forEach(regulation ->
+                       regulation.getRequired_documents().remove(complianceDocument)));
+        userRepository.delete(user);
     }
 
 }
