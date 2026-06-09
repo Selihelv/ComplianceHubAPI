@@ -53,4 +53,9 @@ public class RoleServiceImpl implements RoleService {
 
         userRepository.save(user);
     }
+
+    public void deleteRole(String roleName){
+        log.info("Deleting role {} from the database", roleName);
+        roleRepository.deleteRoleByRoleName(roleName);
+    }
 }

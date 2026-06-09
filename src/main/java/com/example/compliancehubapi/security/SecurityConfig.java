@@ -88,6 +88,7 @@ public class SecurityConfig {
                         // Role
                         .requestMatchers(POST, "/api/roles").hasAnyAuthority("ADMIN")
                         .requestMatchers(POST, "/api/roles/add-to-user").hasAnyAuthority("ADMIN")
+                        .requestMatchers(DELETE, "/api/delete/roleName").hasAnyAuthority("ADMIN")
 
                         //Regulation
                         .requestMatchers(GET,"/api/regulation").hasAnyAuthority("Regulation Manager")
