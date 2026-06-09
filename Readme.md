@@ -1,5 +1,3 @@
-
-
 ## Description of the project
 ComplianceHub API is a RESTful backend application built with Spring Boot, designed to streamline compliance document management for marketplace sellers operating across European markets.
 
@@ -9,9 +7,16 @@ The system supports four roles — Seller, Agent, Regulation Manager, and Admin 
 
 An integrated AI chat feature powered by Spring AI and OpenAI allows users to interact with the platform through natural language, with access to real-time tools such as date/time lookup and user data retrieval.
 
+
+
 ## Class Diagram
 
 ## Setup
+lo que necesitas para lanzar tu app?
+-DB connection
+- AI key
+- ...
+
 
 ## Technologies used
 - Java
@@ -28,6 +33,7 @@ An integrated AI chat feature powered by Spring AI and OpenAI allows users to in
 
 
 ## Controllers and Route structures
+- que endpoints
 
 ## Extra links
 - Project Management Board:
@@ -36,7 +42,8 @@ https://trello.com/invite/b/6a117d920f331643e15e992a/ATTIc50f4bad75791aed6092ce5
 - Presentation Slides:
 
 
-##  Future work
+## Future work
+- mejoras que se puede hacer in the future
 
 ## Resources
 

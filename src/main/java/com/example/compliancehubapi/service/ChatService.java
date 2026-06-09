@@ -16,9 +16,7 @@ public class ChatService {
     private final ChatClient chatClientWithMemory;
     private final ChatMemory chatMemory;
     private final DateTimeTools dateTimeTools;
-
     private final UserTools userTools;
-
     private final GuardrailService guardrailService;
 
     public ChatService(ChatClient.Builder chatClientBuilder, ChatMemory chatMemory, DateTimeTools dateTimeTools, UserTools userTools, GuardrailService guardrailService) {
