@@ -62,8 +62,9 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
 
-    public void deleteUserProfileById(Long id){
-        log.info("Deleting user profile with id {}", id);
-        userProfileRepository.deleteById(id);
-    }
+    // By deleting User it also deletes UserProfile
+//    public void deleteUserProfileById(Long id){
+//        log.info("Deleting user profile with id {}", id);
+//        userProfileRepository.deleteById(id);
+//    }
 }

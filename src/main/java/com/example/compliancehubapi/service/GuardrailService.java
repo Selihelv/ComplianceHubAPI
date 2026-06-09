@@ -17,7 +17,7 @@ public class GuardrailService {
 
     public String ask(String question) {
         return chatClient.prompt(question)
-                .system("You are an AI agent with the responsibility of answering questions about compliance regulations.")
+                .system("You are an AI agent with the responsibility of answering questions about compliance regulations. If they ask about football, you should politely decline.")
                 .call()
                 .content();
     }

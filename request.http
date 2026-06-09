@@ -1,0 +1,16 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
+POST localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "username": "Carlito",
+  "password": "car123+"
+  }
+
+
+###
+GET localhost:8080/orion/compliance_copilot/sh001?question=hello

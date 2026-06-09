@@ -7,7 +7,6 @@ import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Component;
 
-import java.nio.file.OpenOption;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,9 +26,6 @@ public class UserTools {
         return userRepository.findById(id);
     }
 
-    @Tool(description = "Save user")
-    public User saveUser(@ToolParam(description = "The user to save") User user){
-        return userRepository.save(user);
-    }
+
 
 }

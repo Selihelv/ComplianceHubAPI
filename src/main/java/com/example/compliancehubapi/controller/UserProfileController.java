@@ -2,7 +2,6 @@ package com.example.compliancehubapi.controller;
 
 import com.example.compliancehubapi.model.UserProfile;
 import com.example.compliancehubapi.service.UserProfileService;
-import com.example.compliancehubapi.service.impl.UserProfileServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -47,9 +46,9 @@ public class UserProfileController {
     return userProfileService.updateUserProfile(userId, updatedUserProfile);
     }
 
-    @DeleteMapping("/{userId}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteUserProfileById(@PathVariable Long userId) {
-        userProfileService.deleteUserProfileById(userId);
-    }
+//    @DeleteMapping("/{userId}")
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+//    public void deleteUserProfileById(@PathVariable Long userId) {
+//        userProfileService.deleteUserProfileById(userId);
+//    }
 }

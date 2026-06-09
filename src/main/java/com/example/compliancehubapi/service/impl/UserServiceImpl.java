@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.beans.Transient;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -55,6 +55,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public User saveUser(User user) {
+        log.info("Checking if user with username {} already exists", user.getUsername());
+        User existingUser = userRepository.findByUsername(user.getUsername());
+        if (existingUser != null) {
+            log.error("User with username {} already exists", user.getUsername());
+            throw new IllegalArgumentException("User with username " + user.getUsername() + " already exists");
+        }
         log.info("Saving new user {} to the database", user.getUsername());
         // Encode the user's password for security before saving
         user.setPassword(passwordEncoder.encode(user.getPassword()));

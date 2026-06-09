@@ -81,6 +81,7 @@ public class DataLoader implements CommandLineRunner {
                 "Sofia", "Martinez", "sofia@iberia-textiles.test",
                 MarketplaceEnum.ES, "Iberia Textiles SL", "Carrer de Mallorca 401, Barcelona"
         );
+        roleService.addRoleToUser(textileSeller.getUsername(), "Seller");
 
         // Germany – COMPLIANT: both documents approved
         User electronicsSeller = createUser(
@@ -89,6 +90,7 @@ public class DataLoader implements CommandLineRunner {
                 "Lukas", "Schmidt", "lukas@rhein-electronics.test",
                 MarketplaceEnum.DE, "Rhein Electronics GmbH", "Friedrichstrasse 68, Berlin"
         );
+        roleService.addRoleToUser(electronicsSeller.getUsername(), "Seller");
 
         // France – NON_COMPLIANT: identity rejected, VAT pending
         User homewareSeller = createUser(
@@ -97,6 +99,7 @@ public class DataLoader implements CommandLineRunner {
                 "Emma", "Dubois", "emma@nord-homeware.test",
                 MarketplaceEnum.FR, "Nord Homeware SARL", "12 Rue de Rivoli, Paris"
         );
+        roleService.addRoleToUser(homewareSeller.getUsername(), "Seller");
 
         // Netherlands – COMPLIANT: all documents approved
         User cosmeticsSeller = createUser(
@@ -105,6 +108,7 @@ public class DataLoader implements CommandLineRunner {
                 "Lotte", "de Vries", "lotte@bloem-cosmetics.test",
                 MarketplaceEnum.NL, "Bloem Cosmetics BV", "Kalverstraat 152, Amsterdam"
         );
+        roleService.addRoleToUser(cosmeticsSeller.getUsername(), "Seller");
 
         // Poland – PENDING_REVIEW: business certificate approved, insurance pending
         User furnitureSeller = createUser(
@@ -113,6 +117,7 @@ public class DataLoader implements CommandLineRunner {
                 "Piotr", "Kowalski", "piotr@wisla-furniture.test",
                 MarketplaceEnum.PL, "Wisła Furniture Sp. z o.o.", "ul. Nowy Świat 22, Warsaw"
         );
+        roleService.addRoleToUser(furnitureSeller.getUsername(), "Seller");
 
         // Italy – NON_COMPLIANT: CE marking rejected
         User electronicsSellerIT = createUser(
@@ -121,6 +126,7 @@ public class DataLoader implements CommandLineRunner {
                 "Marco", "Ferrari", "marco@roma-tech.test",
                 MarketplaceEnum.IT, "Roma Tech SRL", "Via Condotti 8, Rome"
         );
+        roleService.addRoleToUser(electronicsSellerIT.getUsername(), "Seller");
 
         // Portugal – PENDING_REVIEW: only national ID submitted
         User foodSeller = createUser(
@@ -129,6 +135,7 @@ public class DataLoader implements CommandLineRunner {
                 "Ana", "Silva", "ana@lisboa-foods.test",
                 MarketplaceEnum.PT, "Lisboa Foods Lda", "Rua Augusta 47, Lisbon"
         );
+        roleService.addRoleToUser(foodSeller.getUsername(), "Seller");
 
         // Sweden – COMPLIANT
         User fashionSeller = createUser(
@@ -137,6 +144,7 @@ public class DataLoader implements CommandLineRunner {
                 "Erik", "Lindqvist", "erik@nordic-fashion.test",
                 MarketplaceEnum.SE, "Nordic Fashion AB", "Drottninggatan 55, Stockholm"
         );
+        roleService.addRoleToUser(fashionSeller.getUsername(), "Seller");
 
         //COMPLIANCE_DOCUMENT CREATION
 

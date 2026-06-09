@@ -1,7 +1,6 @@
 package com.example.compliancehubapi.tools;
 
 import org.springframework.ai.tool.annotation.Tool;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

@@ -71,11 +71,11 @@ public class SecurityConfig {
 
                          //User
                         .requestMatchers(GET, "/api/users").hasAnyAuthority("Agent") // only agents can get all users
-                        .requestMatchers(POST, "/api/users").permitAll() // public endpoint to create a new user.
+                        .requestMatchers(POST, "/api/users").permitAll()// public endpoint to create a new user.
                         .requestMatchers(GET, "/api/users/compliance-status/{complianceStatus}").hasAnyAuthority("Agent")
                         .requestMatchers(GET, "/api/users/{id}").hasAnyAuthority("Seller","Agent")
                         .requestMatchers(PUT, "/api/users/{id}").hasAnyAuthority("Seller","Agent")
-                        .requestMatchers(DELETE, "/api/users/{id}").hasAnyAuthority("Agent")
+                        .requestMatchers(DELETE, "/api/users/{id}").hasAnyAuthority("ADMIN")
 
                         // UserProfile
                         .requestMatchers(GET,"/api/user-profile").hasAnyAuthority("Agent")
@@ -83,7 +83,7 @@ public class SecurityConfig {
                         .requestMatchers(GET,"/api/user-profile/by-user/{userId}").hasAnyAuthority("Seller","Agent")
                         .requestMatchers(GET,"/api/user-profile/{id}").hasAnyAuthority("Seller", "Agent")
                         .requestMatchers(PUT,"/api/user-profile/{userId}").hasAnyAuthority("Seller")
-                        .requestMatchers(DELETE, "/api/user-profile/{userId}").hasAnyAuthority( "Agent") //if Sellers delete their User, this should be deleted also
+                      //  .requestMatchers(DELETE, "/api/user-profile/{userId}").hasAnyAuthority( "ADMIN")
 
                         // Role
                         .requestMatchers(POST, "/api/roles").hasAnyAuthority("ADMIN")
@@ -91,12 +91,12 @@ public class SecurityConfig {
                         .requestMatchers(DELETE, "/api/delete/roleName").hasAnyAuthority("ADMIN")
 
                         //Regulation
-                        .requestMatchers(GET,"/api/regulation").hasAnyAuthority("Regulation Manager")
+                        .requestMatchers(GET,"/api/regulation").hasAnyAuthority("Agent","Regulation Manager")
                         .requestMatchers(POST, "/api/regulation").hasAnyAuthority("Regulation Manager")
                         .requestMatchers(GET, "/api/regulation/marketplace/{marketplace}").hasAnyAuthority("Regulation Manager")
                         .requestMatchers(GET, "/api/regulation/{id}").hasAnyAuthority("Regulation Manager")
                         .requestMatchers(PUT, "/api/regulation/{id}").hasAnyAuthority("Regulation Manager")
-                        .requestMatchers(DELETE, "/api/regulation/{id}").hasAnyAuthority("Regulation Manager")
+                        .requestMatchers(DELETE, "/api/regulation/{id}").hasAnyAuthority("Regulation Manager", "ADMIN")
 
                         //ComplianceDocument
                         .requestMatchers(GET,"/api/compliance-document").hasAnyAuthority("Agent")
@@ -106,11 +106,11 @@ public class SecurityConfig {
                         .requestMatchers(GET,"/api/compliance-document/user/{userId}").hasAnyAuthority("Agent")
                         .requestMatchers(GET, "/api/compliance-document/{id}").hasAnyAuthority("Agent")
                         .requestMatchers(PUT, "/api/compliance-document/{id}").hasAnyAuthority("Agent")
-                        .requestMatchers(DELETE,"/api/compliance-document/{id}").hasAnyAuthority("Agent")
+                        .requestMatchers(DELETE,"/api/compliance-document/{id}").hasAnyAuthority("Agent", "ADMIN")
 
                         //CHAT
-                        .requestMatchers(GET, "/chat/**").permitAll()
-                        .requestMatchers(POST, "/chat/chatbot/{conversationId}").authenticated()
+                        .requestMatchers(GET, "/orion/hello").permitAll()
+                        .requestMatchers(POST, "/orion/compliance_copilot/{conversationId}").authenticated()
 
                         //GREET
                         .requestMatchers("/api/greet").permitAll()
