@@ -1,26 +1,24 @@
-
 spring:
   application:
     name: ComplianceHubAPI
 
   datasource:
-    url: jdbc:mysql://localhost:3306/compliance_hub_db
+    url: jdbc:mysql://localhost:3306/compliance_management_hub
     username: root
     password: Ist34Bcn08+
 
   jpa:
     hibernate:
       ddl-auto: create-drop
-
     show-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 
+
   web:
     error:
       include-stacktrace: never
-
 
   ai:
     openai:

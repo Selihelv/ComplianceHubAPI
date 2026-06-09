@@ -85,9 +85,9 @@ public class SecurityConfig {
                         .requestMatchers(PUT,"/api/user-profile/{userId}").hasAnyAuthority("Seller")
                         .requestMatchers(DELETE, "/api/user-profile/{userId}").hasAnyAuthority( "Agent") //if Sellers delete their User, this should be deleted also
 
-                        // Role //TODO: define who can assign roles
-                        .requestMatchers(POST, "/api/roles").permitAll()
-                        .requestMatchers(POST, "/api/roles/add-to-user").permitAll()
+                        // Role
+                        .requestMatchers(POST, "/api/roles").hasAnyAuthority("ADMIN")
+                        .requestMatchers(POST, "/api/roles/add-to-user").hasAnyAuthority("ADMIN")
 
                         //Regulation
                         .requestMatchers(GET,"/api/regulation").hasAnyAuthority("Regulation Manager")

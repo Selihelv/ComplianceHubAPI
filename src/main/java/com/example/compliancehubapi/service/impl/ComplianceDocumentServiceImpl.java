@@ -32,6 +32,7 @@ public class ComplianceDocumentServiceImpl implements ComplianceDocumentService 
         }
         complianceDocument.setUser(user);
         complianceDocument.setDocumentUploadDate(LocalDate.now());
+        complianceDocument.setDocumentStatus(DocumentStatusEnum.PENDING);
         return complianceDocumentRepository.save(complianceDocument);
     }
 

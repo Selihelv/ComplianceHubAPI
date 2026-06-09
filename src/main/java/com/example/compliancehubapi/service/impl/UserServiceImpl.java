@@ -3,6 +3,7 @@ package com.example.compliancehubapi.service.impl;
 import com.example.compliancehubapi.enums.ComplianceStatusEnum;
 import com.example.compliancehubapi.model.User;
 import com.example.compliancehubapi.repository.UserRepository;
+import com.example.compliancehubapi.service.RoleService;
 import com.example.compliancehubapi.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +29,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final RoleService roleService;
 
 
     @Override

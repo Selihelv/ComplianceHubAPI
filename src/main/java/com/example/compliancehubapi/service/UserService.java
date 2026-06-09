@@ -12,10 +12,6 @@ public interface UserService {
 
     User saveUser(User user);
 
-
-
-
-
     List<User> getAllUsers();
 
     Optional<User> getUserById (Long id);

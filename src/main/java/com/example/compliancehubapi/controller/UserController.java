@@ -20,7 +20,7 @@ public class UserController {
 
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
-    public User saveUser(@RequestBody User user) {
+    public User saveUser(@RequestBody User user, @RequestParam String role) {
         return userService.saveUser(user);
     }
 

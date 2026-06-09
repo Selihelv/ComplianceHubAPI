@@ -28,7 +28,7 @@ public class Regulation {
     @Enumerated(EnumType.STRING)
     private MarketplaceEnum marketplace;
 
-    @ManyToMany(cascade = {PERSIST, MERGE})
+    @ManyToMany(cascade = MERGE)
     @JoinTable(
             name= "regulation_documents",
             joinColumns = @JoinColumn(name = "regulation_id"),
