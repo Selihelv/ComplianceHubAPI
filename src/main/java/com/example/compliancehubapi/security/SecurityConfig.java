@@ -18,10 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import static org.springframework.http.HttpMethod.*;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
-/**
- * This is the main configuration class for security in the application. It enables web security,
- * sets up the password encoder, and sets up the security filter chain.
- */
+
 @Configuration
 @EnableWebSecurity // indicates it is a security config class using spring web security
 @RequiredArgsConstructor
@@ -34,25 +31,12 @@ public class SecurityConfig {
     private final AuthenticationManagerBuilder authManagerBuilder;
 
 
-    /**
-     * Bean definition for AuthenticationManager
-     *
-     * @param authenticationConfiguration the instance of AuthenticationConfiguration
-     * @return an instance of the AuthenticationManager
-     * @throws Exception if there is an issue getting the instance of the AuthenticationManager
-     */
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
-    /**
-     * Bean definition for SecurityFilterChain
-     *
-     * @param http the instance of HttpSecurity
-     * @return an instance of the SecurityFilterChain
-     * @throws Exception if there is an issue building the SecurityFilterChain
-     */
+
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // CustomAuthenticationFilter instance created
@@ -67,6 +51,8 @@ public class SecurityConfig {
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(STATELESS))
                 .authorizeHttpRequests((requests) -> requests
+
+                        //Authentication
                         .requestMatchers("/api/login/**").permitAll()// public endpoint to login
 
                          //User
@@ -83,12 +69,11 @@ public class SecurityConfig {
                         .requestMatchers(GET,"/api/user-profile/by-user/{userId}").hasAnyAuthority("Seller","Agent")
                         .requestMatchers(GET,"/api/user-profile/{id}").hasAnyAuthority("Seller", "Agent")
                         .requestMatchers(PUT,"/api/user-profile/{userId}").hasAnyAuthority("Seller")
-                      //  .requestMatchers(DELETE, "/api/user-profile/{userId}").hasAnyAuthority( "ADMIN")
 
                         // Role
                         .requestMatchers(POST, "/api/roles").hasAnyAuthority("ADMIN")
                         .requestMatchers(POST, "/api/roles/add-to-user").hasAnyAuthority("ADMIN")
-                        .requestMatchers(DELETE, "/api/delete/roleName").hasAnyAuthority("ADMIN")
+                        .requestMatchers(DELETE, "/api/roles/delete/roleName").hasAnyAuthority("ADMIN")
 
                         //Regulation
                         .requestMatchers(GET,"/api/regulation").hasAnyAuthority("Agent","Regulation Manager")
@@ -113,8 +98,8 @@ public class SecurityConfig {
                         .requestMatchers(POST, "/orion/compliance_copilot/{conversationId}").authenticated()
 
                         //GREET
-                        .requestMatchers("/api/greet").permitAll()
-                        .requestMatchers("/api/greet/personal").authenticated()
+                        .requestMatchers(GET,"/api/greet").permitAll()
+                        .requestMatchers(GET,"/api/greet/personal").authenticated()
 
                        // .anyRequest().permitAll());
                         .anyRequest().authenticated()); // any other endpoints require authentication

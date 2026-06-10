@@ -33,7 +33,7 @@ public class DataLoader implements CommandLineRunner {
         // STAFF CREATION
 
         User adminAvery = createUser(
-                "administrator", "admin123",
+                "adminAvery", "admin123",
                 ComplianceStatusEnum.NOT_APPLICABLE,
                 "Avery", "Adams", "admin@compliancehub.test",
                 MarketplaceEnum.UK, "Compliance Hub", "1 King William Street, London"
@@ -76,7 +76,7 @@ public class DataLoader implements CommandLineRunner {
 
         // Spain – PENDING_REVIEW: VAT approved, business certificate still pending
         User textileSeller = createUser(
-                "textile-seller", "seller123",
+                "Iberia_textile", "seller123",
                 ComplianceStatusEnum.PENDING_REVIEW,
                 "Sofia", "Martinez", "sofia@iberia-textiles.test",
                 MarketplaceEnum.ES, "Iberia Textiles SL", "Carrer de Mallorca 401, Barcelona"
@@ -85,7 +85,7 @@ public class DataLoader implements CommandLineRunner {
 
         // Germany – COMPLIANT: both documents approved
         User electronicsSeller = createUser(
-                "electronics-seller", "seller123",
+                "Rhein_electronics", "seller123",
                 ComplianceStatusEnum.COMPLIANT,
                 "Lukas", "Schmidt", "lukas@rhein-electronics.test",
                 MarketplaceEnum.DE, "Rhein Electronics GmbH", "Friedrichstrasse 68, Berlin"
@@ -94,7 +94,7 @@ public class DataLoader implements CommandLineRunner {
 
         // France – NON_COMPLIANT: identity rejected, VAT pending
         User homewareSeller = createUser(
-                "homeware-seller", "seller123",
+                "Nord_homeware", "seller123",
                 ComplianceStatusEnum.NON_COMPLIANT,
                 "Emma", "Dubois", "emma@nord-homeware.test",
                 MarketplaceEnum.FR, "Nord Homeware SARL", "12 Rue de Rivoli, Paris"
@@ -103,7 +103,7 @@ public class DataLoader implements CommandLineRunner {
 
         // Netherlands – COMPLIANT: all documents approved
         User cosmeticsSeller = createUser(
-                "cosmetics-seller", "seller123",
+                "Bloem_cosmetics", "seller123",
                 ComplianceStatusEnum.COMPLIANT,
                 "Lotte", "de Vries", "lotte@bloem-cosmetics.test",
                 MarketplaceEnum.NL, "Bloem Cosmetics BV", "Kalverstraat 152, Amsterdam"
@@ -112,7 +112,7 @@ public class DataLoader implements CommandLineRunner {
 
         // Poland – PENDING_REVIEW: business certificate approved, insurance pending
         User furnitureSeller = createUser(
-                "furniture-seller", "seller123",
+                "Wisła_furniture", "seller123",
                 ComplianceStatusEnum.PENDING_REVIEW,
                 "Piotr", "Kowalski", "piotr@wisla-furniture.test",
                 MarketplaceEnum.PL, "Wisła Furniture Sp. z o.o.", "ul. Nowy Świat 22, Warsaw"
@@ -121,7 +121,7 @@ public class DataLoader implements CommandLineRunner {
 
         // Italy – NON_COMPLIANT: CE marking rejected
         User electronicsSellerIT = createUser(
-                "electronics-seller-it", "seller123",
+                "Roma_electronics", "seller123",
                 ComplianceStatusEnum.NON_COMPLIANT,
                 "Marco", "Ferrari", "marco@roma-tech.test",
                 MarketplaceEnum.IT, "Roma Tech SRL", "Via Condotti 8, Rome"
@@ -130,7 +130,7 @@ public class DataLoader implements CommandLineRunner {
 
         // Portugal – PENDING_REVIEW: only national ID submitted
         User foodSeller = createUser(
-                "food-seller", "seller123",
+                "Lisboa_food_society", "seller123",
                 ComplianceStatusEnum.PENDING_REVIEW,
                 "Ana", "Silva", "ana@lisboa-foods.test",
                 MarketplaceEnum.PT, "Lisboa Foods Lda", "Rua Augusta 47, Lisbon"
@@ -139,7 +139,7 @@ public class DataLoader implements CommandLineRunner {
 
         // Sweden – COMPLIANT
         User fashionSeller = createUser(
-                "fashion-seller", "seller123",
+                "Nordic_fashion", "seller123",
                 ComplianceStatusEnum.COMPLIANT,
                 "Erik", "Lindqvist", "erik@nordic-fashion.test",
                 MarketplaceEnum.SE, "Nordic Fashion AB", "Drottninggatan 55, Stockholm"
@@ -248,7 +248,7 @@ public class DataLoader implements CommandLineRunner {
 
         // Spain
         createRegulation(
-                "Spain Tax Identification Requirement",
+                "STIR - Spain Tax Identification Requirement",
                 "Requires all Spanish marketplace sellers to provide a valid Tax Identification Number (NIF) before activation.",
                 MarketplaceEnum.ES,
                 List.of(textileTaxId, textileCertificate)
@@ -256,13 +256,13 @@ public class DataLoader implements CommandLineRunner {
 
         // Germany
         createRegulation(
-                "Germany Business Registration Requirement",
+                "GBRR - Germany Business Registration Requirement",
                 "Requires German sellers to provide a business certificate and VAT exemption evidence.",
                 MarketplaceEnum.DE,
                 List.of(electronicsVatExemption, electronicsCertificate)
         );
         createRegulation(
-                "Germany CE Marking Requirement",
+                "GCMR - Germany CE Marking Requirement",
                 "Requires German electronics sellers to hold a valid CE Marking Certificate for all listed products.",
                 MarketplaceEnum.DE,
                 List.of(electronicsCE)
@@ -270,19 +270,19 @@ public class DataLoader implements CommandLineRunner {
 
         // France
         createRegulation(
-                "EU Marketplace Seller Identity Verification",
+                "EUMSIV - EU Marketplace Seller Identity Verification",
                 "Requires sellers to provide a valid passport or national identity document before marketplace activation.",
                 MarketplaceEnum.FR,
                 List.of(homewarePassport)
         );
         createRegulation(
-                "France Tax Registration Requirement",
+                "FTRR - France Tax Registration Requirement",
                 "Requires French sellers to submit a valid Tax Identification Number for VAT compliance review.",
                 MarketplaceEnum.FR,
                 List.of(homewareTaxId)
         );
         createRegulation(
-                "France GDPR Compliance Requirement",
+                "FGCR - France GDPR Compliance Requirement",
                 "Requires French sellers handling customer data to provide a valid GDPR compliance certificate.",
                 MarketplaceEnum.FR,
                 List.of(homewareGdpr)
@@ -290,13 +290,13 @@ public class DataLoader implements CommandLineRunner {
 
         // Netherlands
         createRegulation(
-                "Netherlands Seller Identity and Business Verification",
+                "NSIBV - Netherlands Seller Identity and Business Verification",
                 "Requires Dutch sellers to submit a national ID and a valid business certificate.",
                 MarketplaceEnum.NL,
                 List.of(cosmeticsNationalId, cosmeticsCertificate)
         );
         createRegulation(
-                "Netherlands Product Safety and Data Protection Requirement",
+                "NPSDPR - Netherlands Product Safety and Data Protection Requirement",
                 "Requires cosmetics sellers in the Netherlands to hold product safety and data protection certificates.",
                 MarketplaceEnum.NL,
                 List.of(cosmeticsProductSafety, cosmeticsDataProtection)
@@ -304,13 +304,13 @@ public class DataLoader implements CommandLineRunner {
 
         // Poland
         createRegulation(
-                "Poland Business and Insurance Requirement",
+                "PBIR - Poland Business and Insurance Requirement",
                 "Requires Polish sellers to provide a business certificate and a valid insurance certificate.",
                 MarketplaceEnum.PL,
                 List.of(furnitureCertificate, furnitureInsurance)
         );
         createRegulation(
-                "Poland Production License Requirement",
+                "PPLC - Poland Production License Requirement",
                 "Requires Polish manufacturing sellers to hold a valid production license.",
                 MarketplaceEnum.PL,
                 List.of(furnitureProductionLicense)
@@ -318,7 +318,7 @@ public class DataLoader implements CommandLineRunner {
 
         // Italy
         createRegulation(
-                "Italy CE Marking and Tax Identification Requirement",
+                "ICMTIR - Italy CE Marking and Tax Identification Requirement",
                 "Requires Italian electronics sellers to provide CE marking certification and a valid tax identification number.",
                 MarketplaceEnum.IT,
                 List.of(romaTechCE, romaTechTaxId)
@@ -326,13 +326,13 @@ public class DataLoader implements CommandLineRunner {
 
         // Portugal
         createRegulation(
-                "Portugal Seller Identity Verification",
+                "PSIV - Portugal Seller Identity Verification",
                 "Requires Portuguese sellers to submit a valid national ID prior to marketplace activation.",
                 MarketplaceEnum.PT,
                 List.of(foodSellerNationalId)
         );
         createRegulation(
-                "Portugal Food Production License Requirement",
+                "PFPLR - Portugal Food Production License Requirement",
                 "Requires Portuguese food sellers to hold a valid production license issued by a recognised authority.",
                 MarketplaceEnum.PT,
                 List.of(foodSellerProductionLicense)
@@ -340,13 +340,13 @@ public class DataLoader implements CommandLineRunner {
 
         // Sweden
         createRegulation(
-                "Sweden Seller Identity and Business Verification",
+                "SSIBV - Sweden Seller Identity and Business Verification",
                 "Requires Swedish sellers to submit a valid passport and a business registration certificate.",
                 MarketplaceEnum.SE,
                 List.of(fashionPassport, fashionCertificate)
         );
         createRegulation(
-                "Sweden Trademark Registration Requirement",
+                "STRR - Sweden Trademark Registration Requirement",
                 "Requires Swedish fashion sellers to provide a trademark certificate for branded goods.",
                 MarketplaceEnum.SE,
                 List.of(fashionTrademark)

@@ -46,9 +46,4 @@ public class UserProfileController {
     return userProfileService.updateUserProfile(userId, updatedUserProfile);
     }
 
-//    @DeleteMapping("/{userId}")
-//    @ResponseStatus(HttpStatus.NO_CONTENT)
-//    public void deleteUserProfileById(@PathVariable Long userId) {
-//        userProfileService.deleteUserProfileById(userId);
-//    }
 }

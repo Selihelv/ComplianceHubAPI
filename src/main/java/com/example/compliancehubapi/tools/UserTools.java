@@ -1,7 +1,6 @@
 package com.example.compliancehubapi.tools;
 
 import com.example.compliancehubapi.enums.ComplianceStatusEnum;
-import com.example.compliancehubapi.enums.MarketplaceEnum;
 import com.example.compliancehubapi.model.User;
 import com.example.compliancehubapi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

@@ -30,7 +30,7 @@ public class RoleController {
         roleService.addRoleToUser(roleToUserDTO.getUsername(), roleToUserDTO.getRoleName());
     }
 
-    @DeleteMapping("/delete/roleName")
+    @DeleteMapping("/roles/delete/roleName")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteRole(@PathVariable String roleName) {
         roleService.deleteRole(roleName);

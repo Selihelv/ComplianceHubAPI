@@ -1,9 +1,7 @@
 package com.example.compliancehubapi.repository;
 
 import com.example.compliancehubapi.enums.ComplianceStatusEnum;
-import com.example.compliancehubapi.enums.MarketplaceEnum;
 import com.example.compliancehubapi.model.User;
-import com.example.compliancehubapi.model.UserProfile;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

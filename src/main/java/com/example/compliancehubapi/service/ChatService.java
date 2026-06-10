@@ -21,7 +21,9 @@ public class ChatService {
     private final ComplianceDocumentTools complianceDocumentTools;
 
 
-    public ChatService(ChatClient.Builder chatClientBuilder, ChatMemory chatMemory, DateTimeTools dateTimeTools, UserTools userTools, UserProfileTools userProfileTools, RegulationTools regulationTools, ComplianceDocumentTools complianceDocumentTools) {
+    public ChatService(ChatClient.Builder chatClientBuilder, ChatMemory chatMemory, DateTimeTools dateTimeTools,
+                       UserTools userTools, UserProfileTools userProfileTools, RegulationTools regulationTools,
+                       ComplianceDocumentTools complianceDocumentTools) {
         this.chatClient = chatClientBuilder.build();
         this.dateTimeTools = dateTimeTools;
         this.userTools = userTools;
@@ -44,7 +46,8 @@ public class ChatService {
     public String chatbot(String conversationId, String message) {
         return chatClientWithMemory
                 .prompt(message)
-                .system("You are an AI agent with the responsibility of answering questions about sellers compliance . If they ask anything unrelated to the compliance subjects, you should politely decline.")
+                .system("You are an AI agent with the responsibility of answering questions about sellers compliance. " +
+                        "If they ask anything unrelated to the compliance subjects, you should politely decline and offer help with the compliance subjects.")
                 .advisors(advisor -> advisor.param(ChatMemory.CONVERSATION_ID, conversationId))
                 .tools(dateTimeTools, userTools, userProfileTools, regulationTools, complianceDocumentTools)
                 .call()

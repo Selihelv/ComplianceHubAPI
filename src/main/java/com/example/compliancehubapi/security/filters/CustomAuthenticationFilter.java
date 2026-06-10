@@ -15,7 +15,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-//import com.fasterxml.jackson.databind.ObjectMapper;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -30,23 +29,12 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
 
-    /**
-     * Constructor for CustomAuthenticationFilter
-     *
-     * @param authenticationManager
-     */
+
     public CustomAuthenticationFilter(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
     }
 
-    /**
-     * Attempts to authenticate the user with given credentials
-     *
-     * @param request  HttpServletRequest
-     * @param response HttpServletResponse
-     * @return Authentication object if successful, otherwise throws an exception
-     * @throws AuthenticationException
-     */
+
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         try {
@@ -70,16 +58,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         }
     }
 
-    /**
-     * Method is called if the user is successfully authenticated
-     *
-     * @param request        HttpServletRequest
-     * @param response       HttpServletResponse
-     * @param chain          FilterChain
-     * @param authentication Authentication
-     * @throws IOException if there is an Input/Output error
-     * @throws ServletException if there is a servlet related error
-     */
+
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
         // Cast the authentication principal to spring security User object
