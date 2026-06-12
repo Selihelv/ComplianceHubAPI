@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "10b087d0-b01c-4553-83e6-5cbde1abb361",
-    "name": "ComplianceHub API Collection Copy",
+    "name": "ComplianceHub API Collection",
     "description": "Postman collection to test all endpoints of the ComplianceHub API. Run the Login requests first to get JWT tokens.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "54051039",
@@ -12,13 +12,13 @@
       "name": "AUTH",
       "item": [
         {
-          "name": "ok- Login as Seller (textile-seller)",
+          "name": "ok- Login as Seller (Iberia_textile)",
           "request": {
             "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"username\": \"textile-seller\",\n    \"password\": \"seller123\"\n}",
+              "raw": "{\n    \"username\": \"Iberia_textile\",\n    \"password\": \"seller123\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -41,13 +41,13 @@
           "response": []
         },
         {
-          "name": "ok- Login as Seller (electronics-seller)",
+          "name": "ok- Login as Seller (Rhein_electronics)",
           "request": {
             "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"username\": \"electronics-seller\",\n    \"password\": \"seller123\"\n}",
+              "raw": "{\n    \"username\": \"Rhein_electronics\",\n    \"password\": \"seller123\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -423,13 +423,16 @@
       "name": "USERS",
       "item": [
         {
-          "name": "ok- Create User (public)",
+          "name": "ok- Create User (public) Copy",
           "request": {
+            "auth": {
+              "type": "noauth"
+            },
             "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"username\": \"carlos\",\n    \"password\": \"car123+\",\n    \"userProfile\": {\n        \"firstName\": \"Carlos\",\n        \"lastName\": \"Garcia\",\n        \"email\": \"carlos.garcia@example.com\",\n        \"marketplace\": \"ES\",\n        \"businessInfo\": {\n            \"businessName\": \"Garcia Imports\",\n            \"businessAddress\": \"Calle Mayor 10, 28013 Madrid, Spain\"\n        }\n    }\n}",
+              "raw": "{\n    \"username\": \"Test\",\n    \"password\": \"test123\"\n    \n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -459,7 +462,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxNzk1NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.nlIXMmEmKt92MdhUvswTu8dNePRPN7SHijTIlSrVEjA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTE5ODk1NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.JcBmPE-hvCrMLVyR92vPS9LZ_h0FJl0HAoCR1SYPIlY",
                   "type": "string"
                 }
               ]
@@ -539,7 +542,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxNzk1NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.nlIXMmEmKt92MdhUvswTu8dNePRPN7SHijTIlSrVEjA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxNzI0MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.lY46SE7X6GaBukWPEBZcKJ8wctEaj1I1gvOVO09wtXg",
                   "type": "string"
                 }
               ]
@@ -547,7 +550,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/users/1",
+              "raw": "http://localhost:8080/api/users/8",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -556,7 +559,7 @@
               "path": [
                 "api",
                 "users",
-                "1"
+                "8"
               ]
             }
           },
@@ -570,7 +573,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huIiwiZXhwIjoxNzgwODE1OTczLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiU2VsbGVyIl19.bPCLC9R3cX7l-LwkhwVXncT5_UVH3wupjCiP49jiLE4",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXh0aWxlLXNlbGxlciIsImV4cCI6MTc4MTAyMzAyMSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIlNlbGxlciJdfQ.zjvdmyltvP7FsFw1hpQOzJdf-6-yp-mHC-TgjGyYBd4",
                   "type": "string"
                 }
               ]
@@ -578,7 +581,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/users/1",
+              "raw": "http://localhost:8080/api/users/10",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -587,7 +590,7 @@
               "path": [
                 "api",
                 "users",
-                "1"
+                "10"
               ]
             }
           },
@@ -601,7 +604,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxNzk1NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.nlIXMmEmKt92MdhUvswTu8dNePRPN7SHijTIlSrVEjA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxNzI0MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.lY46SE7X6GaBukWPEBZcKJ8wctEaj1I1gvOVO09wtXg",
                   "type": "string"
                 }
               ]
@@ -633,7 +636,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYXJpZSIsImV4cCI6MTc4MDgyMDE2MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIlNlbGxlciJdfQ.csEq8FOehtuInwD5uumoAbhTTOVsk2dJwxq0zDz1rAc",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXh0aWxlLXNlbGxlciIsImV4cCI6MTc4MTAyMDE2NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbXX0.-2gGgm_ZxoaR5VaDr-BYBn5heBXzzv_4SI8wttoE6Xc",
                   "type": "string"
                 }
               ]
@@ -665,7 +668,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huIiwiZXhwIjoxNzgwODE1OTczLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiU2VsbGVyIl19.bPCLC9R3cX7l-LwkhwVXncT5_UVH3wupjCiP49jiLE4",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxNzI0MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.lY46SE7X6GaBukWPEBZcKJ8wctEaj1I1gvOVO09wtXg",
                   "type": "string"
                 }
               ]
@@ -674,7 +677,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"username\": \"john\",\n    \"password\": \"jd34+\",\n    \"complianceStatus\": \"NON_COMPLIANT\"\n}",
+              "raw": "{\n    \"username\": \"john\",\n    \"password\": \"seller1234\",\n    \"complianceStatus\": \"NON_COMPLIANT\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -682,7 +685,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/users/1",
+              "raw": "http://localhost:8080/api/users/13",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -691,21 +694,21 @@
               "path": [
                 "api",
                 "users",
-                "1"
+                "13"
               ]
             }
           },
           "response": []
         },
         {
-          "name": "ok- Delete User (Agent)",
+          "name": "ok- Delete User (Admin)",
           "request": {
             "auth": {
               "type": "bearer",
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxODg2MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.0NVR4hfC_wReB3meC6jIc2AeKpBdgMBGlbKfFSiLLu0",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzgxMDc3MzkzLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiQURNSU4iXX0.BRhvWV-aryfPgSh_ceXFXMIOP0IGZSoPgQP7czlGM0c",
                   "type": "string"
                 }
               ]
@@ -713,7 +716,7 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/users/1",
+              "raw": "http://localhost:8080/api/users/13",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -722,7 +725,7 @@
               "path": [
                 "api",
                 "users",
-                "1"
+                "13"
               ]
             }
           },
@@ -736,7 +739,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "<SELLER_TOKEN>",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXh0aWxlLXNlbGxlciIsImV4cCI6MTc4MTAyMDE2NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbXX0.-2gGgm_ZxoaR5VaDr-BYBn5heBXzzv_4SI8wttoE6Xc",
                   "type": "string"
                 }
               ]
@@ -771,7 +774,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\",\n    \"email\": \"test.user@example.com\",\n    \"marketplace\": \"ES\"\n}",
+              "raw": "{\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\",\n    \"email\": \"test.user@example.com\",\n    \"marketplace\": \"ES\",\n    \"businessInfo\": {\n            \"businessName\": \"Test Imports\",\n            \"businessAddress\": \"Calle Test 26, 08002 Barcelona, Spain\"\n        }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -801,7 +804,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTIzNSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.bOQrVK58yZxByF2t2kCQtyB_dOPlxAoewcam6kRKs0g",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxNzQ4MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.E1ywLBf9sgmub4R8dx64qJEu-u7f6J3ML345nsHf8xk",
                   "type": "string"
                 }
               ]
@@ -831,7 +834,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "<SELLER_TOKEN>",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXh0aWxlLXNlbGxlciIsImV4cCI6MTc4MTAyMDE2NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbXX0.-2gGgm_ZxoaR5VaDr-BYBn5heBXzzv_4SI8wttoE6Xc",
                   "type": "string"
                 }
               ]
@@ -861,7 +864,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTIzNSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.bOQrVK58yZxByF2t2kCQtyB_dOPlxAoewcam6kRKs0g",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxNzQ4MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.E1ywLBf9sgmub4R8dx64qJEu-u7f6J3ML345nsHf8xk",
                   "type": "string"
                 }
               ]
@@ -869,7 +872,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/user-profile/2",
+              "raw": "http://localhost:8080/api/user-profile/10",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -878,7 +881,7 @@
               "path": [
                 "api",
                 "user-profile",
-                "2"
+                "10"
               ]
             }
           },
@@ -892,7 +895,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqZWFuIiwiZXhwIjoxNzgwODE2NjM3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiU2VsbGVyIl19.atnVkrIXSSSQlyKu9VEEm4N9aLXgsxXexJqsk2aMO5A",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXh0aWxlLXNlbGxlciIsImV4cCI6MTc4MTAyMzAyMSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIlNlbGxlciJdfQ.zjvdmyltvP7FsFw1hpQOzJdf-6-yp-mHC-TgjGyYBd4",
                   "type": "string"
                 }
               ]
@@ -900,7 +903,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/user-profile/2",
+              "raw": "http://localhost:8080/api/user-profile/6",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -909,7 +912,7 @@
               "path": [
                 "api",
                 "user-profile",
-                "2"
+                "6"
               ]
             }
           },
@@ -923,7 +926,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTIzNSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.bOQrVK58yZxByF2t2kCQtyB_dOPlxAoewcam6kRKs0g",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxNzQ4MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.E1ywLBf9sgmub4R8dx64qJEu-u7f6J3ML345nsHf8xk",
                   "type": "string"
                 }
               ]
@@ -931,7 +934,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/user-profile/by-user/2",
+              "raw": "http://localhost:8080/api/user-profile/by-user/10",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -941,7 +944,7 @@
                 "api",
                 "user-profile",
                 "by-user",
-                "2"
+                "10"
               ]
             }
           },
@@ -955,7 +958,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqZWFuIiwiZXhwIjoxNzgwODE2OTEzLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiU2VsbGVyIl19.SWl1eesLzkgncV9DZJBONoXJMrhcj6GDduPX0IU83Gw",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXh0aWxlLXNlbGxlciIsImV4cCI6MTc4MTAyMzAyMSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIlNlbGxlciJdfQ.zjvdmyltvP7FsFw1hpQOzJdf-6-yp-mHC-TgjGyYBd4",
                   "type": "string"
                 }
               ]
@@ -972,7 +975,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/user-profile/1",
+              "raw": "http://localhost:8080/api/user-profile/13",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -981,7 +984,7 @@
               "path": [
                 "api",
                 "user-profile",
-                "1"
+                "13"
               ]
             }
           },
@@ -995,7 +998,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTIzNSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.bOQrVK58yZxByF2t2kCQtyB_dOPlxAoewcam6kRKs0g",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxNzQ4MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.E1ywLBf9sgmub4R8dx64qJEu-u7f6J3ML345nsHf8xk",
                   "type": "string"
                 }
               ]
@@ -1028,14 +1031,14 @@
           "response": []
         },
         {
-          "name": "check this- Delete User Profile (Agent)",
+          "name": "check this- Delete User Profile (ADMIN)",
           "request": {
             "auth": {
               "type": "bearer",
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTIzNSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.bOQrVK58yZxByF2t2kCQtyB_dOPlxAoewcam6kRKs0g",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxNzQ4MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.E1ywLBf9sgmub4R8dx64qJEu-u7f6J3ML345nsHf8xk",
                   "type": "string"
                 }
               ]
@@ -1043,7 +1046,7 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/user-profile/5",
+              "raw": "http://localhost:8080/api/user-profile/12",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1052,7 +1055,7 @@
               "path": [
                 "api",
                 "user-profile",
-                "5"
+                "12"
               ]
             }
           },
@@ -1378,7 +1381,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "<SELLER_TOKEN>",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAyMDQzMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.YQGaX6lbw1spZ9fHg3gydo7xA0D-HUFQP5KQCXHILgo",
                   "type": "string"
                 }
               ]
@@ -1493,7 +1496,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqZWFuIiwiZXhwIjoxNzgwODE2OTEzLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiU2VsbGVyIl19.SWl1eesLzkgncV9DZJBONoXJMrhcj6GDduPX0IU83Gw",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXh0aWxlLXNlbGxlciIsImV4cCI6MTc4MTAyMzAyMSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIlNlbGxlciJdfQ.zjvdmyltvP7FsFw1hpQOzJdf-6-yp-mHC-TgjGyYBd4",
                   "type": "string"
                 }
               ]
@@ -1502,7 +1505,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"documentName\": \"New Postman Test Document\",\n    \"documentStatus\": \"PENDING\",\n    \"documentType\": \"ID\"\n}",
+              "raw": "{\n    \"documentName\": \"New Postman Test Document\",\n    \"documentStatus\": \"PENDING\",\n    \"documentType\": \"NATIONAL_ID\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1532,7 +1535,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "<AGENT_TOKEN>",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxODUzMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.uC85AWTRX7wfXQJvscNOFNvCqkVOM2usxdxXYcCbRi0",
                   "type": "string"
                 }
               ]
@@ -1571,7 +1574,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTY3NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.P014s5m7BERtwA7jg84aBDG4oFwZuMLh2d0ck9MJbcA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxODUzMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.uC85AWTRX7wfXQJvscNOFNvCqkVOM2usxdxXYcCbRi0",
                   "type": "string"
                 }
               ]
@@ -1631,7 +1634,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTY3NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.P014s5m7BERtwA7jg84aBDG4oFwZuMLh2d0ck9MJbcA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxODUzMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.uC85AWTRX7wfXQJvscNOFNvCqkVOM2usxdxXYcCbRi0",
                   "type": "string"
                 }
               ]
@@ -1662,7 +1665,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTY3NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.P014s5m7BERtwA7jg84aBDG4oFwZuMLh2d0ck9MJbcA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxODUzMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.uC85AWTRX7wfXQJvscNOFNvCqkVOM2usxdxXYcCbRi0",
                   "type": "string"
                 }
               ]
@@ -1694,7 +1697,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTY3NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.P014s5m7BERtwA7jg84aBDG4oFwZuMLh2d0ck9MJbcA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxODUzMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.uC85AWTRX7wfXQJvscNOFNvCqkVOM2usxdxXYcCbRi0",
                   "type": "string"
                 }
               ]
@@ -1726,7 +1729,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTY3NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.P014s5m7BERtwA7jg84aBDG4oFwZuMLh2d0ck9MJbcA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxODUzMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.uC85AWTRX7wfXQJvscNOFNvCqkVOM2usxdxXYcCbRi0",
                   "type": "string"
                 }
               ]
@@ -1758,7 +1761,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTY3NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.P014s5m7BERtwA7jg84aBDG4oFwZuMLh2d0ck9MJbcA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxODUzMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.uC85AWTRX7wfXQJvscNOFNvCqkVOM2usxdxXYcCbRi0",
                   "type": "string"
                 }
               ]
@@ -1790,7 +1793,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTY3NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.P014s5m7BERtwA7jg84aBDG4oFwZuMLh2d0ck9MJbcA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxODUzMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.uC85AWTRX7wfXQJvscNOFNvCqkVOM2usxdxXYcCbRi0",
                   "type": "string"
                 }
               ]
@@ -1822,7 +1825,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTY3NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.P014s5m7BERtwA7jg84aBDG4oFwZuMLh2d0ck9MJbcA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxODUzMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.uC85AWTRX7wfXQJvscNOFNvCqkVOM2usxdxXYcCbRi0",
                   "type": "string"
                 }
               ]
@@ -1854,7 +1857,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTY3NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.P014s5m7BERtwA7jg84aBDG4oFwZuMLh2d0ck9MJbcA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxODUzMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.uC85AWTRX7wfXQJvscNOFNvCqkVOM2usxdxXYcCbRi0",
                   "type": "string"
                 }
               ]
@@ -1886,7 +1889,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTY3NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.P014s5m7BERtwA7jg84aBDG4oFwZuMLh2d0ck9MJbcA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxODUzMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.uC85AWTRX7wfXQJvscNOFNvCqkVOM2usxdxXYcCbRi0",
                   "type": "string"
                 }
               ]
@@ -1895,7 +1898,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"documentName\": \"John Doe passport\",\n    \"documentStatus\": \"REJECTED\",\n    \"documentType\": \"ID\"\n}",
+              "raw": "{\n    \n    \"documentStatus\": \"REJECTED\"\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1903,7 +1906,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/compliance-document/3",
+              "raw": "http://localhost:8080/api/compliance-document/9",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1912,7 +1915,7 @@
               "path": [
                 "api",
                 "compliance-document",
-                "3"
+                "9"
               ]
             }
           },
@@ -1926,7 +1929,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYW1lcyIsImV4cCI6MTc4MDgxOTY3NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.P014s5m7BERtwA7jg84aBDG4oFwZuMLh2d0ck9MJbcA",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTAxODUzMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.uC85AWTRX7wfXQJvscNOFNvCqkVOM2usxdxXYcCbRi0",
                   "type": "string"
                 }
               ]
@@ -1934,7 +1937,7 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/compliance-document/5",
+              "raw": "http://localhost:8080/api/compliance-document/9",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -1943,7 +1946,7 @@
               "path": [
                 "api",
                 "compliance-document",
-                "5"
+                "9"
               ]
             }
           },
@@ -1957,6 +1960,9 @@
         {
           "name": "Chat Hello (public)",
           "request": {
+            "auth": {
+              "type": "noauth"
+            },
             "method": "GET",
             "header": [],
             "url": {
@@ -1975,42 +1981,6 @@
           "response": []
         },
         {
-          "name": "Chat Ask (authenticated)",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYXJpZSIsImV4cCI6MTc4MDgyMDE2MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIlNlbGxlciJdfQ.csEq8FOehtuInwD5uumoAbhTTOVsk2dJwxq0zDz1rAc",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/orion/ask?question=What is GDPR?",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "orion",
-                "ask"
-              ],
-              "query": [
-                {
-                  "key": "question",
-                  "value": "What is GDPR?"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "name": "ok- Chatbot with Memory - First message (authenticated)",
           "request": {
             "auth": {
@@ -2018,7 +1988,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqZWFuIiwiZXhwIjoxNzgwODE2OTEzLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiU2VsbGVyIl19.SWl1eesLzkgncV9DZJBONoXJMrhcj6GDduPX0IU83Gw",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZ2VudF9OQiIsImV4cCI6MTc4MTE5OTYwMiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIkFnZW50Il19.QBGtwxia6JyskQrNcWfP7v0ai-XoE1Q78tQuZoFGpg0",
                   "type": "string"
                 }
               ]
@@ -2026,7 +1996,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/orion/compliance_copilot/conv001?question=Does the seller Jean is compliant?",
+              "raw": "http://localhost:8080/orion/compliance_copilot/conv001?question=Does the seller Iberia_textile is compliant?",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -2040,7 +2010,7 @@
               "query": [
                 {
                   "key": "question",
-                  "value": "Does the seller Jean is compliant?"
+                  "value": "Does the seller Iberia_textile is compliant?"
                 }
               ]
             }
@@ -2048,14 +2018,87 @@
           "response": []
         },
         {
-          "name": "Chatbot with Memory - Follow-up (same conv-001)/ (authenticated)",
+          "name": "ok- Chatbot with Memory - SH001",
           "request": {
             "auth": {
               "type": "bearer",
               "bearer": [
                 {
                   "key": "token",
-                  "value": "<SELLER_TOKEN>",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzgxMDc2MzczLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiQURNSU4iXX0.4oeGfl5EmLiCiavzq7s21esbtq1xYewbuEufKGGKqUw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/orion/compliance_copilot/sh001?question=I would like to also sell in PT marketplace, can you tell me what I need",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "orion",
+                "compliance_copilot",
+                "sh001"
+              ],
+              "query": [
+                {
+                  "key": "question",
+                  "value": "Hello, do you know me?",
+                  "disabled": true
+                },
+                {
+                  "key": "question",
+                  "value": "my username is fashion-seller",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "question",
+                  "value": "can you update my marketplace? to FR",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "question",
+                  "value": "UK",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "question",
+                  "value": "can you tell me what regulations I have to be compliant in FR?",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "question",
+                  "value": "Can you check my documents and tell me if I am compliant in FR marketplace",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "question",
+                  "value": "I would like to also sell in PT marketplace, can you tell me what I need",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Chatbot with Memory - Follow-up (conv-001)/ (authenticated)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXh0aWxlLXNlbGxlciIsImV4cCI6MTc4MTAyMDY2MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbXX0.dqZ0qZDgglACkjNf7XYzdGuxrJTHwLCha5M2WIwm2CE",
                   "type": "string"
                 }
               ]
@@ -2085,14 +2128,14 @@
           "response": []
         },
         {
-          "name": "Chatbot - Guardrail Test (expect DENIED REQUEST)",
+          "name": "{NOT_OK}Chatbot - Guardrail Test (expect DENIED REQUEST)",
           "request": {
             "auth": {
               "type": "bearer",
               "bearer": [
                 {
                   "key": "token",
-                  "value": "<SELLER_TOKEN>",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXh0aWxlLXNlbGxlciIsImV4cCI6MTc4MTAyNjY2NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbIlNlbGxlciJdfQ.zPGbMxqg2ipV6CgvuPj39C_n5ZPCYigrVTfGNw8MtKY",
                   "type": "string"
                 }
               ]
@@ -2154,7 +2197,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqZWFuIiwiZXhwIjoxNzgwODE2OTEzLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiU2VsbGVyIl19.SWl1eesLzkgncV9DZJBONoXJMrhcj6GDduPX0IU83Gw",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXh0aWxlLXNlbGxlciIsImV4cCI6MTc4MTAyMDY2MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsInJvbGVzIjpbXX0.dqZ0qZDgglACkjNf7XYzdGuxrJTHwLCha5M2WIwm2CE",
                   "type": "string"
                 }
               ]
