@@ -22,8 +22,6 @@
 
 
 
-
-
 ## Description of the project
 ComplianceHub API is a RESTful backend application built with Spring Boot, designed to streamline compliance document management for marketplace sellers operating across European markets.
 
@@ -37,11 +35,11 @@ An integrated AI chat feature powered by Spring AI and OpenAI allows users to in
 
 ## Class Diagram
 
-
+![img.png](img.png)
 
 
 ## Setup
-### Prerequisites
+#### Prerequisites
 - Java 25+
 - Maven 3.8+
 - MySQL 8+
@@ -70,71 +68,71 @@ An integrated AI chat feature powered by Spring AI and OpenAI allows users to in
 
 ## Controllers and Route structures
 ### Authentication:
-| Method | **Endpoint** | Access |
-|--------|--------------|--------|
-| POST   | /api/login   | Public |
+| Function | Method | **Endpoint** | Access |
+|----------|--------|--------------|--------|
+| Login    | POST   | /api/login   | Public |
 
 ### User:
-| Method | **Endpoint**                                    | Access         |
-|--------|-------------------------------------------------|----------------|
-| GET    | /api/users                                      | Agent          |
-| POST   | /api/users                                      | Public         |
-| GET    | /api/users/compliance-status/{complianceStatus} | Agent          |
-| GET    | /api/users/{id}                                 | Seller + Agent |
-| PUT    | /api/users/{id}                                 | Seller + Agent |
-| DELETE | /api/users/{id}                                 | Admin          |
+| Function                      | Method | **Endpoint**                                    | Access         |
+|-------------------------------|--------|-------------------------------------------------|----------------|
+| Get all users                 | GET    | /api/users                                      | Agent          |
+| Create a new user             | POST   | /api/users                                      | Public         |
+| Get user by compliance status | GET    | /api/users/compliance-status/{complianceStatus} | Agent          |
+| Get user by id                | GET    | /api/users/{id}                                 | Seller + Agent |
+| Update user by id             | PUT    | /api/users/{id}                                 | Seller + Agent |
+| Delete user by id             | DELETE | /api/users/{id}                                 | Admin          |
 
 ### UserProfile:
-| Method | **Endpoint**                       | Access         |
-|--------|------------------------------------|----------------|
-| GET    | /api/user-profile                  | Agent          |
-| POST   | /api/user-profile                  | Public         |
-| GET    | /api/user-profile/by-user/{userId} | Seller + Agent |
-| GET    | /api/user-profile/{id}             | Seller + Agent |
-| PUT    | /api/user-profile/{userId}         | Seller         |
+| Function                    | Method | **Endpoint**                       | Access         |
+|-----------------------------|--------|------------------------------------|----------------|
+| Get all user profiles       | GET    | /api/user-profile                  | Agent          |
+| Create a new user profile   | POST   | /api/user-profile                  | Public         |
+| Get user profile by user id | GET    | /api/user-profile/by-user/{userId} | Seller + Agent |
+| Get user profile by  id     | GET    | /api/user-profile/{id}             | Seller + Agent |
+| Update user profile by id   | PUT    | /api/user-profile/{userId}         | Seller         |
 
 ### Role:
-| Method | **Endpoint**               | Access |
-|--------|----------------------------|--------|
-| POST   | /api/roles                 | Admin  |
-| POST   | /api/roles/add-to-user     | Admin  |
-| DELETE | /api/roles/delete/roleName | Admin  |
+| Function                   | Method | **Endpoint**               | Access |
+|----------------------------|--------|----------------------------|--------|
+| Create new role            | POST   | /api/roles                 | Admin  |
+| Add role to user           | POST   | /api/roles/add-to-user     | Admin  |
+| Delete a role by role name | DELETE | /api/roles/delete/roleName | Admin  |
 
 ### Regulation:
-| Method | **Endpoint**                              | Access                     |
-|--------|-------------------------------------------|----------------------------|
-| GET    | /api/regulation                           | Agent + Regulation Manager |
-| POST   | /api/regulation                           | Regulation Manager         |
-| GET    | /api/regulation/marketplace/{marketplace} | Regulation Manager         |
-| GET    | /api/regulation/{id}                      | Regulation Manager         |
-| PUT    | /api/regulation/{id}                      | Regulation Manager         |
-| DELETE | /api/regulation/{id}                      | Admin + Regulation Manager |
+| Function                       | Method | **Endpoint**                              | Access                     |
+|--------------------------------|--------|-------------------------------------------|----------------------------|
+| Get all regulations            | GET    | /api/regulation                           | Agent + Regulation Manager |
+| Create a new regulation        | POST   | /api/regulation                           | Regulation Manager         |
+| Get regulations by marketplace | GET    | /api/regulation/marketplace/{marketplace} | Regulation Manager         |
+| Get regulation by id           | GET    | /api/regulation/{id}                      | Regulation Manager         |
+| Update regulation by id        | PUT    | /api/regulation/{id}                      | Regulation Manager         |
+| Delete regulation by id        | DELETE | /api/regulation/{id}                      | Admin + Regulation Manager |
 
 ### ComplianceDocument:
-| Method | **Endpoint**                                      | Access        |
-|--------|---------------------------------------------------|---------------|
-| GET    | /api/compliance-document                          | Agent         |
-| POST   | /api/compliance-document                          | Seller        |
-| GET    | /api/compliance-document/document-status/{status} | Agent         |
-| GET    | /api/compliance-document/document-type/{type}     | Agent         |
-| GET    | /api/compliance-document/user/{userId}            | Agent         |
-| GET    | /api/compliance-document/{id}                     | Agent         |
-| PUT    | /api/compliance-document/{id}                     | Agent         |
-| DELETE | /api/compliance-document/{id}                     | Agent + Admin |
+| Function                                   | Method | **Endpoint**                                      | Access        |
+|--------------------------------------------|--------|---------------------------------------------------|---------------|
+| Get all compliance documents               | GET    | /api/compliance-document                          | Agent         |
+| Create a new compliance document           | POST   | /api/compliance-document                          | Seller        |
+| Get compliance document by document status | GET    | /api/compliance-document/document-status/{status} | Agent         |
+| Get compliance document by document type   | GET    | /api/compliance-document/document-type/{type}     | Agent         |
+| Get compliance document by user id         | GET    | /api/compliance-document/user/{userId}            | Agent         |
+| Get compliance document by id              | GET    | /api/compliance-document/{id}                     | Agent         |
+| Updae compliance document by id            | PUT    | /api/compliance-document/{id}                     | Agent         |
+| Delete compliance document by id           | DELETE | /api/compliance-document/{id}                     | Agent + Admin |
 
 
 ### AI Chat:
-| Method | **Endpoint**                               | Access              |
-|--------|--------------------------------------------|---------------------|
-| GET    | /orion/hello                               | Public              |
-| POST   | /orion/compliance_copilot/{conversationId} | Authenticated users |
+| Function                           | Method | **Endpoint**                               | Access              |
+|------------------------------------|--------|--------------------------------------------|---------------------|
+| Get greeting                       | GET    | /orion/hello                               | Public              |
+| Get an AI conversation with memory | POST   | /orion/compliance_copilot/{conversationId} | Authenticated users |
 
 
 ### Greet:
-| Method | **Endpoint**        | Access              |
-|--------|---------------------|---------------------|
-| GET    | /api/greet          |  Public             |
-| GET    | /api/greet/personal | Authenticated users |
+| Function              | Method | **Endpoint**        | Access              |
+|-----------------------|--------|---------------------|---------------------|
+| Get greeting          | GET    | /api/greet          |  Public             |
+| Get personal greeting | GET    | /api/greet/personal | Authenticated users |
 
 ### Any other requests: authenticated users
 
@@ -143,7 +141,7 @@ An integrated AI chat feature powered by Spring AI and OpenAI allows users to in
 - Project Management Board:
 https://trello.com/invite/b/6a117d920f331643e15e992a/ATTIc50f4bad75791aed6092ce5c068f62342F0A984D/proyecto-final-backend
 
-- Presentation Slides:
+- Presentation Slides: https://prezi.com/view/WaeB6wnzuKaIRQCH1N2y
 
 
 ## Future work
